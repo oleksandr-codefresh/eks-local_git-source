@@ -9,7 +9,7 @@ spec:
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
-    namespace: personal-eks
+    namespace: eks-local
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
