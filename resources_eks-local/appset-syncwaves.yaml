@@ -12,8 +12,8 @@ spec:
     spec:
       project: "default"
       source:
-        repoURL: https://github.com/argoproj/argocd-example-apps/
-        targetRevision: HEAD
+        repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+        targetRevision: eks-local
         path: sync-waves
       destination:
         server: '{{server}}'
