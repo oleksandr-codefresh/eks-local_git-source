@@ -13,7 +13,7 @@ spec:
       project: "default"
       source:
         repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-        targetRevision: eks-local
+        targetRevision: personal-eks
         path: sync-waves
       destination:
         server: '{{server}}'
