@@ -14,7 +14,7 @@ spec:
         app: express-app-git-s
     spec:
       containers:
-        - image: xeonalex/guesbook:0.3
+        - image: xeonalex/guesbook:0.2
           name: express-app-git-s
           ports:
             - name: http
