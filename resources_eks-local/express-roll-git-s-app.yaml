@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: express-roll-git-s-app
+spec:
+  project: default
+  source:
+    path: app-resources-definitions/express-rollout-git-source-app
+    repoURL: https://github.com/oleksandr-codefresh/eks-local_git-source
+    targetRevision: main
+  destination:
+    namespace: eks-local
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
