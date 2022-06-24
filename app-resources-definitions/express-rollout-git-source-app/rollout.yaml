@@ -4,7 +4,7 @@ metadata:
   name: express-rollout-git-s
 spec:
   replicas: 2
-  revisionHistoryLimit: 2
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: express-app-git-s
@@ -14,7 +14,7 @@ spec:
         app: express-app-git-s
     spec:
       containers:
-        - image: xeonalex/guesbook:0.1
+        - image: xeonalex/guesbook:0.2
           name: express-app-git-s
           ports:
             - name: http
