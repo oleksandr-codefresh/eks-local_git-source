@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: gas
-  namespace: argocd
+  namespace: eks-local
 spec:
   generators:
   - list:
