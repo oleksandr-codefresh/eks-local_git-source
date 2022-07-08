@@ -7,7 +7,7 @@ spec:
   generators:
   - list:
       elements:
-      - namespace: staging
+      - namespace: "123"
   template:
     metadata:
       name: 'guestbook-{{namespace}}'
