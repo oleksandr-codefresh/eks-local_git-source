@@ -14,7 +14,7 @@ spec:
       source:
         repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
         targetRevision: personal-eks
-        path: sync-waves
+        path: guestbook
       destination:
         server: '{{server}}'
         namespace: argocd-app-set
