@@ -5,15 +5,20 @@ metadata:
 spec:
   project: default
   source:
-    path: helm-guestbook
+    path: kustomize-guestbook
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps.git
     targetRevision: personal-eks
   destination:
-    server: https://kubernetes.default.svc
     namespace: test-namespace
+    server: https://kubernetes.default.svc
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
       - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
