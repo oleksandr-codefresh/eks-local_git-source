@@ -5,7 +5,7 @@ metadata:
 spec:
   project: default
   source:
-    path: kustomize-guestbook
+    path: guestbook-rollout
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps.git
     targetRevision: personal-eks
   destination:
