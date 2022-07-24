@@ -5,9 +5,9 @@ metadata:
 spec:
   project: default
   source:
-    path: guestbook
+    path: guestbook-rollout
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps.git
-    targetRevision: personal-eks
+    targetRevision: presentation
   destination:
     namespace: test-namespace
     server: https://kubernetes.default.svc
