@@ -9,7 +9,7 @@ spec:
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
-    name: in-cluster
+    name: pashaprod
     namespace: demo-ns
   syncPolicy:
     automated:
