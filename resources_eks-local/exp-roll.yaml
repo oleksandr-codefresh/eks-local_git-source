@@ -12,7 +12,7 @@ spec:
     targetRevision: personal-eks
   destination:
     name: in-cluster
-    namespace: test-ns
+    namespace: eks-local
   syncPolicy:
 #     automated:
 #       prune: true
