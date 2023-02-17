@@ -14,9 +14,9 @@ spec:
     name: in-cluster
     namespace: eks-local
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+#     automated:
+#       prune: true
+#       selfHeal: true
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
