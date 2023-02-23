@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: exp-roll
+  name: exp-roll2
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
