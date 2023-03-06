@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-addons
+  namespace: test-ns
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+      revision: eks-local
+      directories:
+      - path: git-generator/*
+  template:
+    metadata:
+      name: 'gen-{{path.basename}}'
+    spec:
+      project: "default"
+      source:
+        repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{path.basename}}'
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
