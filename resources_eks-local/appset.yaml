@@ -3,6 +3,8 @@ kind: ApplicationSet
 metadata:
   name: cluster-addons
   namespace: test-ns
+  labels:
+    sds: sdddd
 spec:
   generators:
   - git:
