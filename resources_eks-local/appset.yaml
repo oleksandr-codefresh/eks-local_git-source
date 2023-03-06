@@ -4,7 +4,7 @@ metadata:
   name: cluster-addons
   namespace: test-ns
   labels:
-    sds: sdddd
+    sds: sdddds
 spec:
   generators:
   - git:
