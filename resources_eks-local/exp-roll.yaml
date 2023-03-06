@@ -1,8 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: exp-roll3
-  namespace: test-ns
+  name: exp-roll2
   labels:
     sds: sdsssssss
   finalizers:
