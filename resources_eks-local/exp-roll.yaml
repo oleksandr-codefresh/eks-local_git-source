@@ -4,7 +4,7 @@ metadata:
   name: exp-roll3
   namespace: test-ns
   labels:
-    sds: sds
+    sds: sdssss
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
