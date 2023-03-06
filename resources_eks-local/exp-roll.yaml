@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: exp-roll3
   namespace: test-ns
+  labels:
+    sds: sds
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
