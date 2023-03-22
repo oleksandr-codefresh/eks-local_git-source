@@ -16,12 +16,15 @@ spec:
     - path: express-rollout_multi-source/analyses
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
       targetRevision: personal-eks
-    - path: express-rollout_multi-source/resources
-      repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-      targetRevision: personal-eks
+#     - path: express-rollout_multi-source/resources
+#       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+#       targetRevision: personal-eks
     - repoURL: 'https://nicholaswilde.github.io/helm-charts/'
       targetRevision: 0.1.1
       chart: twtxt
+    - path: express-rollout_multi-source/resources
+      repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+      targetRevision: personal-eks
   destination:
     name: in-cluster
     namespace: test-ns
