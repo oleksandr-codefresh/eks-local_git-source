@@ -4,6 +4,8 @@ metadata:
   name: exp-roll2
   labels:
     sds: sdsssssss
+  annotations: 
+    codefresh.io/app-group: 'test-g, group-2'
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
