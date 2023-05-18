@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: git-pat-obtainer-github
+  labels:
+    codefresh_io_entity: git-pat-obtainer
+    codefresh_io_git_provider: github
+data:
+  config: |
+    provider: github
+    mode: CUSTOM
+    appName: ''
+    secret:
+      name: git-integration
+      namespace: eks-local
+      path:
+        appId: '2202140'
+        clientId: dc90e9424889893a135b
+        clientSecret: e732ef05268002429f77af62b65b88788b0dd572
+        url: https://github.com
