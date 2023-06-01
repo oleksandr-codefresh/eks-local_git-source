@@ -22,7 +22,7 @@ spec:
       project: "default"
       source:
         repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-        revision: eks-local
+        targetRevision: eks-local
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
