@@ -15,15 +15,27 @@ spec:
   template:
     metadata:
       name: 'gen-{{path.basename}}'
+      annotations: 
+        codefresh.io/app-group: 'appSet, {{path.basename}}'
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io/foreground
     spec:
       project: "default"
       source:
         repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-        targetRevision: HEAD
+        revision: eks-local
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}'
+        namespace: test
       syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
         syncOptions:
-        - CreateNamespace=true
+          - PrunePropagationPolicy=foreground
+          - Replace=false
+          - PruneLast=false
+          - Validate=true
+          - CreateNamespace=true
+          - ApplyOutOfSyncOnly=false
