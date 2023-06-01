@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: cluster-addons
-  namespace: test-ns
   labels:
     sds: sdddds
 spec:
