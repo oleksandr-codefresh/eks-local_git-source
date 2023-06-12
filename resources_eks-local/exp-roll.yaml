@@ -5,7 +5,7 @@ metadata:
   labels:
     sds: sdsssssss
   annotations: 
-    codefresh.io/app-group: 'test-g, group-2, test'
+    codefresh.io/app-group: 'test-g'
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
@@ -31,9 +31,9 @@ spec:
     name: in-cluster
     namespace: test-ns
   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
