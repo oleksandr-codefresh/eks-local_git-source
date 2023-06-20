@@ -14,7 +14,7 @@ spec:
     targetRevision: personal-eks
   destination:
     name: in-cluster
-    namespace: test-ns
+    namespace: test-prod
   syncPolicy:
     automated:
       prune: true
