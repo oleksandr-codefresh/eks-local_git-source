@@ -31,9 +31,9 @@ spec:
     name: in-cluster
     namespace: test-ns
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: false
+    # automated:
+    #   prune: true
+    #   selfHeal: false
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
