@@ -28,12 +28,13 @@ spec:
 #       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
 #       targetRevision: personal-eks
   destination:
-    name: in-cluster
+    # name: in-cluster
+    name: alina
     namespace: test-ns
   syncPolicy:
-    # automated:
-    #   prune: true
-    #   selfHeal: false
+    automated:
+      prune: true
+      selfHeal: false
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
