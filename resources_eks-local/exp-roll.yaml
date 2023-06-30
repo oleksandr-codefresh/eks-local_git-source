@@ -32,9 +32,9 @@ spec:
     name: alina
     namespace: test-ns
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: false
+    # automated:
+    #   prune: true
+    #   selfHeal: false
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
