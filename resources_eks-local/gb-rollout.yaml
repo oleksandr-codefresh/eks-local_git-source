@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    path: guestbooks/guestbook
+    path: guestbooks/guestbook-rollout
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
@@ -19,7 +19,7 @@ spec:
   syncPolicy:
     automated:
       prune: true
-      selfHeal: false
+      selfHeal: true
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
