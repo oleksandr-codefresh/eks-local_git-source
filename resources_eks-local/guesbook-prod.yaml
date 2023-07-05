@@ -2,10 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: guesbook-prod
-  annotations: 
-    codefresh.io/app-group: 'guestbook, prod'
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
+  annotations:
+    codefresh.io/app-group: guestbook,prod
 spec:
   project: default
   source:
@@ -24,5 +24,5 @@ spec:
       - Replace=false
       - PruneLast=false
       - Validate=true
-      - CreateNamespace=true
+      - CreateNamespace=false
       - ApplyOutOfSyncOnly=false
