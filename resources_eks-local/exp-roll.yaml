@@ -11,7 +11,10 @@ metadata:
 spec:
   project: default
   source:
-    path: express-rollout
+    # path: express-rollout
+    # repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+    # targetRevision: personal-eks
+    path: express-rollout_multi-source/analyses
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   # sources:
@@ -37,7 +40,7 @@ spec:
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true
+      # selfHeal: true
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
