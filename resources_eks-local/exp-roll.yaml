@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: exp-roll3
+  name: exp-roll2
   labels:
     sds: sdsssssss
   annotations: 
