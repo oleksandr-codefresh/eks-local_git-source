@@ -10,20 +10,20 @@ metadata:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
   project: default
-  # source:
-  #   path: express-rollout
-  #   repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-  #   targetRevision: personal-eks
-  sources:
-    - ref: testRef
-      repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-      targetRevision: personal-eks
-    - path: express-rollout_multi-source/analyses
-      repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-      targetRevision: personal-eks
-    - path: express-rollout_multi-source/resources
-      repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-      targetRevision: personal-eks
+  source:
+    path: express-rollout
+    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+    targetRevision: personal-eks
+  # sources:
+  #   - ref: testRef
+  #     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+  #     targetRevision: personal-eks
+  #   - path: express-rollout_multi-source/analyses
+  #     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+  #     targetRevision: personal-eks
+  #   - path: express-rollout_multi-source/resources
+  #     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+  #     targetRevision: personal-eks
 #     - repoURL: 'https://nicholaswilde.github.io/helm-charts/'
 #       targetRevision: 0.1.1
 #       chart: twtxt
