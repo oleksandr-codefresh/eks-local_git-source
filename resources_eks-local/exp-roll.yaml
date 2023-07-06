@@ -15,6 +15,9 @@ spec:
   #   repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
   #   targetRevision: personal-eks
   sources:
+    - ref: testRef
+      repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+      targetRevision: personal-eks
     - path: express-rollout_multi-source/analyses
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
       targetRevision: personal-eks
