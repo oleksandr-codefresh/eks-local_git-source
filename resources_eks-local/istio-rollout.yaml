@@ -30,6 +30,6 @@ spec:
       - Replace=false
       - PruneLast=false
       - Validate=true
-      - CreateNamespace=true
+      - CreateNamespace=false
       - ApplyOutOfSyncOnly=false
       - RespectIgnoreDifferences=true
