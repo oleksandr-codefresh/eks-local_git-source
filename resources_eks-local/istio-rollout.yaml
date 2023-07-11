@@ -26,10 +26,10 @@ spec:
       - Validate=true
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=false
-      - ServerSideApply=true
+      - ServerSideApply=false
       - RespectIgnoreDifferences=true
   ignoreDifferences:
     - group: networking.istio.io
       kind: VirtualService
       jsonPointers:
-        - /spec/http/0/
+        - /spec/http/0
