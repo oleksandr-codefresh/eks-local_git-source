@@ -16,11 +16,11 @@ spec:
     # name: in-cluster
     name: alina
     namespace: test-ns
-  ignoreDifferences:
-  - group: networking.istio.io
-    kind: VirtualService
-    jsonPointers:
-    - /spec/http/0
+  # ignoreDifferences:
+  # - group: networking.istio.io
+  #   kind: VirtualService
+  #   jsonPointers:
+  #   - /spec/http/0
   syncPolicy:
     automated:
       prune: true
