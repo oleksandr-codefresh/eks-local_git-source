@@ -2,10 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: istio-rollout
-  annotations: 
-    codefresh.io/app-group: 'test, g2'
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
+  annotations:
+    codefresh.io/app-group: test,g2
 spec:
   project: default
   source:
@@ -13,14 +13,8 @@ spec:
     repoURL: https://github.com/oleksandr-codefresh/rollouts-demo
     targetRevision: 1.23k8s
   destination:
-    # name: in-cluster
     name: alina
     namespace: test-ns
-  ignoreDifferences:
-  - group: networking.istio.io
-    kind: VirtualService
-    jsonPointers:
-    - /spec/http/0
   syncPolicy:
     automated:
       prune: true
@@ -32,5 +26,10 @@ spec:
       - Validate=true
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=false
+      - ServerSideApply=true
       - RespectIgnoreDifferences=true
-      - ServerSideApply=false
+  ignoreDifferences:
+    - group: networking.istio.io
+      kind: VirtualService
+      jsonPointers:
+        - /spec/http/0/
