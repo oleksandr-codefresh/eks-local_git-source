@@ -29,8 +29,8 @@ spec:
       - ApplyOutOfSyncOnly=false
       - ServerSideApply=false
       - RespectIgnoreDifferences=true
-  ignoreDifferences:
-    - group: networking.istio.io
-      kind: VirtualService
-      jsonPointers:
-        - /spec/http/0
+  # ignoreDifferences:
+  #   - group: networking.istio.io
+  #     kind: VirtualService
+  #     jsonPointers:
+  #       - /spec/http/0
