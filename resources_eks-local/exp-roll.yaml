@@ -42,6 +42,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
+      - ServerSideApply=true
       - PrunePropagationPolicy=foreground
       - Replace=false
       - PruneLast=false
