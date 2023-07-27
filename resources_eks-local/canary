@@ -9,7 +9,7 @@ spec:
   source:
     path: canary-rollout
     repoURL: https://github.com/testcodefresh/argocd-example-apps
-    targetRevision: master
+    targetRevision: test-alex
   destination:
     name: alina
     namespace: test-ns
