@@ -12,7 +12,7 @@ spec:
     targetRevision: master
   destination:
     name: alina
-    namespace: test-ns2
+    namespace: test-ns
   syncPolicy:
     automated:
       prune: true
