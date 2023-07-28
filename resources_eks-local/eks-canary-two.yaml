@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: canary-2
+  name: eks-canary-2
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
