@@ -7,9 +7,9 @@ metadata:
 spec:
   project: default
   source:
-    path: guestbooks/guestbook
-    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-    targetRevision: personal-eks
+    path: canary-rollout-ingress
+    repoURL: https://github.com/testcodefresh/argocd-example-apps
+    targetRevision: master
   destination:
     name: in-cluster
     namespace: test-ns
