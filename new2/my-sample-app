@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-sample-app
+spec:
+  destination:
+    namespace: my-app
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/companyhall/sample-apps.git
+    targetRevision: main  
+  project: default  # Replace 'default' with the name of the Argo CD project you want to use
