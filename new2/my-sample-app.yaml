@@ -3,14 +3,25 @@ kind: Application
 metadata:
   name: my-sample-app
 spec:
-  destination:
-    namespace: my-app
-    server: https://kubernetes.default.svc
+  project: default
   source:
     path: guestbooks/guestbook
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-    targetRevision: personal-eks 
-  project: default  # Replace 'default' with the name of the Argo CD project you want to use
+    targetRevision: personal-eks
+  destination:
+    namespace: my-app
+    server: https://kubernetes.default.svc
   syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+      allowEmpty: false
     syncOptions:
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
       - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
+      - ServerSideApply=false
+      - RespectIgnoreDifferences=false
