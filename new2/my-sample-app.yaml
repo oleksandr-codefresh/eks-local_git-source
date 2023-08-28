@@ -5,7 +5,7 @@ metadata:
 spec:
   project: default
   source:
-    path: guestbooks/guestbook
+    path: guestbooks/nima
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
