@@ -7,6 +7,7 @@ spec:
     namespace: my-app
     server: https://kubernetes.default.svc
   source:
-    repoURL: https://github.com/companyhall/sample-apps.git
-    targetRevision: main  
+    path: guestbooks/guestbook
+    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+    targetRevision: personal-eks 
   project: default  # Replace 'default' with the name of the Argo CD project you want to use
