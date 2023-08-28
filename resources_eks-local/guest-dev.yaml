@@ -2,8 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: guesbook-dev
-  # annotations: 
-  #   codefresh.io/app-group: 'guestbook, dev'
+  annotations: 
+    codefresh.io/app-group: 'guestbook, dev'
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
