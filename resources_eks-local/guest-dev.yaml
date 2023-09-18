@@ -4,7 +4,7 @@ metadata:
   name: guesbook-dev
   annotations: 
     codefresh.io/app-group: 'guestbook, dev2'
-    # codefresh.io/product: 'b01'
+    codefresh.io/product: 'b01'
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
@@ -26,5 +26,5 @@ spec:
       - Replace=false
       - PruneLast=false
       - Validate=true
-      - CreateNamespace=false
+      - CreateNamespace=true
       - ApplyOutOfSyncOnly=false
