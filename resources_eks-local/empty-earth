@@ -1,10 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: empty-app
+  name: earth
   annotations: 
-    codefresh.io/app-group: 'guestbook, dev'
-    codefresh.io/product: B01
+    codefresh.io/product: solar
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
@@ -14,9 +13,9 @@ spec:
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
-    # name: in-cluster
-    name: alina
-    namespace: test-dev
+    server: https://kubernetes.default.svc
+    # name: alina
+    namespace: dev-incluster-1
   syncPolicy:
     automated:
       prune: true
