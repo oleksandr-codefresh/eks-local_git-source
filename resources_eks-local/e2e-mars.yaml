@@ -14,7 +14,7 @@ spec:
     targetRevision: personal-eks
   destination:
     # name: in-cluster
-    name: aline
+    name: alina
     namespace: dev-incluster
   syncPolicy:
     automated:
