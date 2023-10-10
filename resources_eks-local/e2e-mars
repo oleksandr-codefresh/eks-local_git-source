@@ -13,7 +13,8 @@ spec:
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
-    name: in-cluster
+    # name: in-cluster
+    name: aline
     namespace: dev-incluster
   syncPolicy:
     automated:
