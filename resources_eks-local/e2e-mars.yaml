@@ -3,7 +3,6 @@ kind: Application
 metadata:
   name: mars
   annotations: 
-    codefresh.io/product: Solar
     custom-annotation: Solar
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
