@@ -10,9 +10,9 @@ metadata:
 spec:
   project: default
   source:
-    path: guestbooks/guestbook-rollout
+    path: guestbook
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-    targetRevision: personal-eks
+    targetRevision: eks-local
   destination:
     name: alina
     namespace: test-dev
