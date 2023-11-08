@@ -14,7 +14,7 @@ spec:
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
-    name: pysarenko
+    name: in-cluster
     namespace: test-dev
   syncPolicy:
     automated:
