@@ -15,7 +15,7 @@ spec:
     targetRevision: personal-eks
   destination:
     #name: in-cluster
-    name: pysarenko
+    name: alina
     namespace: test-dev
   syncPolicy:
     automated:
