@@ -3,8 +3,7 @@ kind: Application
 metadata:
   name: guesbook-prod-roll
   annotations: 
-    codefresh.io/app-group: 'guestbook, dev'
-    codefresh.io/product: B01
+    argocd.argoproj.io/manifest-generate-paths: .
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
