@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: earth
+  name: empty-mars
   annotations: 
     cust-annot: solar
   finalizers:
@@ -14,8 +14,8 @@ spec:
     targetRevision: personal-eks
   destination:
     # server: https://kubernetes.default.svc
-    name: alina
-    namespace: dev-incluster-1
+    name: in-cluster
+    namespace: helm-01
   syncPolicy:
     automated:
       prune: true
