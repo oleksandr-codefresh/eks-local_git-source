@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: earth
+  name: earth2
   annotations: 
     codefresh.io/product: solar
   finalizers:
@@ -17,10 +17,10 @@ spec:
     # name: alina
     namespace: dev-incluster-1
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-      allowEmpty: true
+    # automated:
+    #   prune: true
+    #   selfHeal: true
+    #   allowEmpty: true
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
