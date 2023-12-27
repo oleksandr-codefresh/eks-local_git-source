@@ -1,6 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  namespace: cf-test
   name: self-heal-issue
   annotations: 
     argocd.argoproj.io/manifest-generate-paths: .
