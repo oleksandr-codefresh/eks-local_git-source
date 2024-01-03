@@ -7,7 +7,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
-  project: default
+  project: test
   source:
     path: guestbooks/guestbook-rollout
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
