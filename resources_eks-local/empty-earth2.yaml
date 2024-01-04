@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    path: empty22
+    path: empty2
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
