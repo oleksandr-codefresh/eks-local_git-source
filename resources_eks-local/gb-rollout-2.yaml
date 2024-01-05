@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: guesbook-prod-roll
+  metadata: cf-apps
   annotations: 
     argocd.argoproj.io/manifest-generate-paths: .
   finalizers:
