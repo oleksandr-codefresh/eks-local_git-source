@@ -2,8 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: empty-mars
-  annotations: 
-    cust-annot: solar
+  namespace: cf-apps-sources
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
