@@ -6,25 +6,23 @@ metadata:
   name: guest-appset
 spec:
   generators:
-  - list:
-      elements:
-      - cluster: engineering-dev
-        url: https://1.2.3.4
-  # generators:
-  #   - git:
-  #       files:
-  #         - path: dis/**/prd-us-east-1/deploy-helm.yaml
-  #       repoURL: >-
-  #         https://gitlab.com/preciselydata/di-suite-saas-platform/devops/gitops-deployments.git
-  #       revision: HEAD
+    - git:
+        files:
+          - path: dis/**/test-app/rollout.yaml
+        repoURL: >-
+          https://github.com/oleksandr-codefresh/eks-local_git-source
+        revision: main
   template:
     metadata:
-      name: guesbook-prod-roll
+      labels:
+        app.kubernetes.io/name: '{{ path[1] }}-{{ path[2] }}'
+        app.kubernetes.io/part-of: '{{ path[0] }}'
+      name: '{{ path[1] }}-{{ path[2] }}'
     spec:
       destination:
         name: in-cluster
         # name: alina
-        namespace: test-dev
+        namespace: '{{ path[1] }}'
       ignoreDifferences:
         - group: apps
           jsonPointers:
@@ -33,9 +31,9 @@ spec:
       project: default
       revisionHistoryLimit: 5
       source:
-        path: guestbooks/guestbook-rollout
-        repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-        targetRevision: personal-eks
+        path: '{{ path }}'
+        repoURL: https://github.com/oleksandr-codefresh/eks-local_git-source
+        targetRevision: main
       syncPolicy:
         automated:
           allowEmpty: true
