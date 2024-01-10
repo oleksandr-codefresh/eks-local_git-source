@@ -3,8 +3,8 @@ kind: Application
 metadata:
   name: guesbook-prod-roll
   # namespace: cf-apps
-  annotations: 
-    argocd.argoproj.io/manifest-generate-paths: .
+  # annotations: 
+  #   argocd.argoproj.io/manifest-generate-paths: .
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
@@ -19,12 +19,14 @@ spec:
     namespace: test-dev
   syncPolicy:
     automated:
+      allowEmpty: true
       prune: true
       selfHeal: true
+    retry: {}
     syncOptions:
-      - PrunePropagationPolicy=foreground
-      - Replace=false
-      - PruneLast=false
-      - Validate=true
+      # - PrunePropagationPolicy=foreground
+      # - Replace=false
+      # - PruneLast=false
+      # - Validate=true
       - CreateNamespace=true
-      - ApplyOutOfSyncOnly=false
+      # - ApplyOutOfSyncOnly=false
