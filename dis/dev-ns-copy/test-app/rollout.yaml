@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: '1'
-  name: mars-rollout2
+  name: mars-rollout3
   labels:
     testLabel: 'newvalue'
 spec:
@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: express-microservice2
-          image: gcr.io/heptio-images/ks-guestbook-demo:0.1
+          image: gcr.io/heptio-images/ks-guestbook-demo:0.2
           ports:
             - containerPort: 3070
           resources:
