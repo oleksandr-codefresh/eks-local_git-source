@@ -19,11 +19,7 @@ spec:
   #       revision: HEAD
   template:
     metadata:
-      labels:
-        app.kubernetes.io/name: '{{ path[1] }}-{{ path[2] }}'
-        app.kubernetes.io/part-of: '{{ path[0] }}'
-      name: '{{ path[1] }}-{{ path[2] }}'
-      namespace: cf-prd-cloud-platform-eks
+      name: guesbook-prod-roll
     spec:
       destination:
         name: in-cluster
