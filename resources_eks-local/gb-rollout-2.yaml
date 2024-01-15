@@ -27,6 +27,6 @@ spec:
       # - PrunePropagationPolicy=foreground
       # - Replace=false
       # - PruneLast=false
-      # - Validate=true
+      - Validate=true
       - CreateNamespace=true
       # - ApplyOutOfSyncOnly=false
