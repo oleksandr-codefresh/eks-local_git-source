@@ -25,7 +25,7 @@ spec:
     retry: {}
     syncOptions:
       # - PrunePropagationPolicy=foreground
-      # - Replace=false
+      - Replace=false
       - PruneLast=false
       - Validate=true
       - CreateNamespace=true
