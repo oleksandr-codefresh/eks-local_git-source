@@ -10,7 +10,7 @@ spec:
   source:
     path: nested-app
     repoURL: https://github.com/oleksandr-codefresh/eks-local_git-source
-    targetRevision: personal-eks
+    targetRevision: main
   destination:
     name: in-cluster
     namespace: test-dev
