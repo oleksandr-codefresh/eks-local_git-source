@@ -24,7 +24,7 @@ spec:
       selfHeal: true
     retry: {}
     syncOptions:
-      # - PrunePropagationPolicy=foreground
+      - PrunePropagationPolicy=foreground
       - Replace=false
       - PruneLast=false
       - Validate=true
