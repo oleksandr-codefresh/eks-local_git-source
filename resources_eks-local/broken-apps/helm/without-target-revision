@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-without-revision
+  name: helm-without-target-revision
 spec:
   destination:
     namespace: test-ns
@@ -9,7 +9,6 @@ spec:
   source:
     repoURL: 'https://charts.bitnami.com/bitnami'
     chart: node
-  sources: []
   project: default
   syncPolicy:
     syncOptions:
