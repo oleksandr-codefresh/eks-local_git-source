@@ -22,11 +22,11 @@ spec:
       allowEmpty: true
       prune: true
       selfHeal: true
-    retry: {}
+    # retry: {}
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
       - PruneLast=false
-      - Validate=true
+      - Validate=false
       - CreateNamespace=true
       # - ApplyOutOfSyncOnly=false
