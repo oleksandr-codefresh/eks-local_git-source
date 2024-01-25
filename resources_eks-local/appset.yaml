@@ -1,9 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: cluster-addons
-  labels:
-    sds: sdddds
+  name: app-set-generated
 spec:
   generators:
   - git:
