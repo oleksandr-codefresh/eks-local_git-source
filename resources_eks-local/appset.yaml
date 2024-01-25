@@ -12,6 +12,7 @@ spec:
   template:
     metadata:
       name: 'gen-{{path.basename}}'
+      namespace: cf-apps
       annotations: 
         codefresh.io/app-group: 'appSet, {{path.basename}}'
       finalizers:
