@@ -18,10 +18,10 @@ spec:
     # name: alina
     namespace: test-dev
   syncPolicy:
-    automated:
-      allowEmpty: true
-      prune: true
-      selfHeal: false
+    automated: {}
+      # allowEmpty: true
+      # prune: true
+      # selfHeal: false
     # retry: {}
     syncOptions:
       - PrunePropagationPolicy=foreground
