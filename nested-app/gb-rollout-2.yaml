@@ -12,7 +12,7 @@ spec:
   source:
     path: guestbooks/guestbook-rollout
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-    targetRevision: personal-eks
+    targetRevision: HEAD
   destination:
     name: in-cluster
     # name: alina
