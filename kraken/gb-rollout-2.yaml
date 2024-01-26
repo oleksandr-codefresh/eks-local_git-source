@@ -17,7 +17,7 @@ spec:
     # name: alina
     namespace: test-dev
   syncPolicy:
-    automated:
+    # automated:
       # allowEmpty: true
       # prune: true
       # selfHeal: false

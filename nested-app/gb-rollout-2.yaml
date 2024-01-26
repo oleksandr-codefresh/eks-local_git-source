@@ -19,10 +19,9 @@ spec:
     namespace: test-dev
   syncPolicy:
     automated:
-      # allowEmpty: true
-      # prune: true
-      # selfHeal: false
-    # retry: {}
+      allowEmpty: true
+      prune: true
+      selfHeal: false
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
