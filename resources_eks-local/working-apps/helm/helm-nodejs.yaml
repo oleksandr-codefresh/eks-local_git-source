@@ -15,7 +15,7 @@ spec:
     automated:
       allowEmpty: true
       prune: true
-      selfHeal: true
+      selfHeal: false
     retry: {}
     syncOptions:
       - PrunePropagationPolicy=foreground
