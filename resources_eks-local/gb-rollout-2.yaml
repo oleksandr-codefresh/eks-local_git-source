@@ -3,8 +3,8 @@ kind: Application
 metadata:
   name: guesbook-prod-roll
   namespace: cf-apps
-  # annotations: 
-  #   argocd.argoproj.io/manifest-generate-paths: .
+  annotations: 
+    codefresh.io/app-long-sync-minutes: 1
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
