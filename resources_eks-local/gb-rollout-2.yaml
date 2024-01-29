@@ -29,4 +29,4 @@ spec:
       - PruneLast=false
       - Validate=true
       - CreateNamespace=true
-      # - ApplyOutOfSyncOnly=false
+      - ApplyOutOfSyncOnly=false
