@@ -4,7 +4,7 @@ metadata:
   name: guesbook-prod-roll
   namespace: cf-apps
   annotations: 
-    codefresh.io/app-long-sync-minutess: '1'
+    codefresh.io/app-long-sync-minutes: '1'
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
