@@ -15,7 +15,7 @@ spec:
       # name: sops-helm
       env:
         - name: RELEASE_NAME
-          value: pre-prod
+          value: pre-prods
     path: helm-guestbook
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
