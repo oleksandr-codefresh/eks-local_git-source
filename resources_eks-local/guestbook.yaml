@@ -1,35 +1,35 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: guest
-  labels: 
-    test: 'sdsds'
-  annotations: 
-    codefresh.io/app-group: 'test'
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io/foreground
-spec:
-  project: default
-  source:
-    plugin:
-      # name: sops-helm
-      env:
-        - name: RELEASE_NAME
-          value: pre-prods
-    path: helm-guestbook
-    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-    targetRevision: personal-eks
-  destination:
-    name: in-cluster
-    namespace: test-ns
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - PrunePropagationPolicy=foreground
-      - Replace=false
-      - PruneLast=false
-      - Validate=true
-      - CreateNamespace=true
-      - ApplyOutOfSyncOnly=false
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: guest
+#   labels: 
+#     test: 'sdsds'
+#   annotations: 
+#     codefresh.io/app-group: 'test'
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io/foreground
+# spec:
+#   project: default
+#   source:
+#     plugin:
+#       # name: sops-helm
+#       env:
+#         - name: RELEASE_NAME
+#           value: pre-prods
+#     path: helm-guestbook
+#     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+#     targetRevision: personal-eks
+#   destination:
+#     name: in-cluster
+#     namespace: test-ns
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#       - PrunePropagationPolicy=foreground
+#       - Replace=false
+#       - PruneLast=false
+#       - Validate=true
+#       - CreateNamespace=true
+#       - ApplyOutOfSyncOnly=false
