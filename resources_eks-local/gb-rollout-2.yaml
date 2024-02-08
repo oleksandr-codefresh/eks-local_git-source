@@ -10,11 +10,6 @@ metadata:
 spec:
   project: default
   source:
-    plugin:
-      # name: sops-helm
-      env:
-        - name: RELEASE_NAME
-          value: pre-prod
     path: guestbooks/guestbook-rollout
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
