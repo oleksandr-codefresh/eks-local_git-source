@@ -1,32 +1,32 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: guesbook-prod-roll
-#   namespace: cf-apps
-#   annotations: 
-#     codefresh.io/app-long-sync-minutes: '1'
-#   finalizers:
-#     - resources-finalizer.argocd.argoproj.io/foreground
-# spec:
-#   project: default
-#   source:
-#     path: guestbooks/guestbook-rollout
-#     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-#     targetRevision: personal-eks
-#   destination:
-#     name: in-cluster
-#     # name: alina
-#     namespace: test-dev
-#   syncPolicy:
-#     # automated:
-#     #   allowEmpty: true
-#     #   prune: true
-#     #   selfHeal: true
-#     retry: {}
-#     syncOptions:
-#       # - PrunePropagationPolicy=foreground
-#       - Replace=false
-#       - PruneLast=false
-#       - Validate=true
-#       - CreateNamespace=true
-#       - ApplyOutOfSyncOnly=false
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guesbook-prod-roll
+  # namespace: cf-apps
+  annotations: 
+    codefresh.io/app-long-sync-minutes: '1'
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/foreground
+spec:
+  project: default
+  source:
+    path: guestbooks/guestbook-rollout
+    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+    targetRevision: personal-eks
+  destination:
+    name: in-cluster
+    # name: alina
+    namespace: test-dev
+  syncPolicy:
+    # automated:
+    #   allowEmpty: true
+    #   prune: true
+    #   selfHeal: true
+    retry: {}
+    syncOptions:
+      # - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
