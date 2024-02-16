@@ -1,27 +1,27 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: my-sample-app
-spec:
-  project: default
-  source:
-    path: guestbooks/nima
-    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-    targetRevision: personal-eks
-  destination:
-    namespace: my-app
-    server: https://kubernetes.default.svc
-  syncPolicy:
-    automated:
-      prune: false
-      selfHeal: false
-      allowEmpty: false
-    syncOptions:
-      - PrunePropagationPolicy=foreground
-      - Replace=false
-      - PruneLast=false
-      - Validate=true
-      - CreateNamespace=true
-      - ApplyOutOfSyncOnly=false
-      - ServerSideApply=false
-      - RespectIgnoreDifferences=false
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: my-sample-app
+# spec:
+#   project: default
+#   source:
+#     path: guestbooks/nima
+#     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+#     targetRevision: personal-eks
+#   destination:
+#     namespace: my-app
+#     server: https://kubernetes.default.svc
+#   syncPolicy:
+#     automated:
+#       prune: false
+#       selfHeal: false
+#       allowEmpty: false
+#     syncOptions:
+#       - PrunePropagationPolicy=foreground
+#       - Replace=false
+#       - PruneLast=false
+#       - Validate=true
+#       - CreateNamespace=true
+#       - ApplyOutOfSyncOnly=false
+#       - ServerSideApply=false
+#       - RespectIgnoreDifferences=false
