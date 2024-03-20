@@ -11,7 +11,8 @@ spec:
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
-    name: alina
+    name: in-cluster
+    # name: alina
     namespace: test-dev-3
   syncPolicy:
     automated:
