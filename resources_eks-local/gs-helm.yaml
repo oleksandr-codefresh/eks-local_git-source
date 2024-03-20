@@ -1,21 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guesbook-dev-roll
+  name: gb-helm
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
-  annotations:
-    codefresh.io/product: B01
-    codefresh.io/app-group: guestbook,dev
 spec:
   project: default
   source:
-    path: guestbooks/guestbook-rollout
+    path: helm-guestbook
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
     name: alina
-    namespace: test-dev
+    namespace: test-dev-3
   syncPolicy:
     automated:
       prune: true

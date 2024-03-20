@@ -1,22 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gs
+  name: gb-kustomize
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
   project: default
   source:
-    path: canary-rollout-ingress
-    repoURL: https://github.com/testcodefresh/argocd-example-apps
-    targetRevision: master
+    path: kustomize-guestbook
+    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+    targetRevision: personal-eks
   destination:
-    name: in-cluster
-    namespace: test-ns
+    name: alina
+    namespace: test-dev-2
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+      allowEmpty: false
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
@@ -24,3 +25,5 @@ spec:
       - Validate=true
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=false
+      - ServerSideApply=false
+      - RespectIgnoreDifferences=false
