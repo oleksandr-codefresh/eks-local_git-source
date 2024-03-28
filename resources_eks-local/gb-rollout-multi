@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guesbook-prod-roll
+  name: guesbook-prod-roll-multi
   annotations: 
     codefresh.io/app-long-sync-minutes: '1'
   finalizers:
@@ -20,10 +20,10 @@ spec:
     # name: alina
     namespace: test-dev
   syncPolicy:
-    # automated:
-    #   allowEmpty: true
-    #   prune: true
-    #   selfHeal: true
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
     retry: {}
     syncOptions:
       # - PrunePropagationPolicy=foreground
