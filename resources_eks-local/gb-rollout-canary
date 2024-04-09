@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guesbook-prod-roll
+  name: guesbook-canary-roll
   annotations: 
     codefresh.io/app-long-sync-minutes: '1'
   finalizers:
@@ -12,6 +12,10 @@ spec:
     path: guestbooks/guestbook-rollout
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
+    plugin:
+      env:
+        - name: RELEASE_NAME
+          value: pre-prod
   destination:
     name: in-cluster
     # name: alina
