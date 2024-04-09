@@ -12,7 +12,7 @@ spec:
     path: guestbooks/guestbook-rollout
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
-    plugin:
+    plugin: # cmp plugin with return only one configmap
       env:
         - name: RELEASE_NAME
           value: pre-prod
