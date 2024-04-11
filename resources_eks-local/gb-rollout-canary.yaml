@@ -9,14 +9,14 @@ metadata:
 spec:
   project: default
   source:
-    # path: guestbooks/guestbook-rollout
-    path: kustomize-guestbook
+    path: guestbooks/guestbook-rollout
+    # path: kustomize-guestbook
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
-    plugin: # cmp plugin with return only one configmap
-      env:
-        - name: RELEASE_NAME
-          value: pre-prod
+    # plugin: # cmp plugin with return only one configmap
+    #   env:
+    #     - name: RELEASE_NAME
+    #       value: pre-prod
   destination:
     name: in-cluster
     # name: alina
