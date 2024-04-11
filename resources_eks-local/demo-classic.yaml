@@ -1,0 +1,20 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   labels:
+#     app.kubernetes.io/instance: external-apps
+#     name: codefresh-v1
+#   name: classic-platform
+# spec:
+#   destination:
+#     namespace: default
+#     server: 'https://kubernetes.default.svc'
+#   project: default
+#   source:
+#     path: codefresh
+#     plugin:
+#       env:
+#         - name: RELEASE_NAME
+#           value: pre-prod
+#     repoURL: 'https://github.com/codefresh-io/cf-helm.git'
+#     targetRevision: non-prod-ue1-pre-prod
