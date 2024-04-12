@@ -7,7 +7,7 @@ metadata:
   name: classic-platform
 spec:
   destination:
-    namespace: default
+    namespace: test-classic
     server: 'https://kubernetes.default.svc'
   project: default
   source:
