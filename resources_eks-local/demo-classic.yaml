@@ -18,3 +18,16 @@ spec:
           value: pre-prod
     repoURL: 'https://github.com/codefresh-io/cf-helm.git'
     targetRevision: test-pre-prod
+  syncPolicy:
+    # automated:
+      # allowEmpty: true
+      # prune: true
+      # selfHeal: true
+    retry: {}
+    syncOptions:
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
