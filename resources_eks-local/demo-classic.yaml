@@ -17,4 +17,4 @@ spec:
         - name: RELEASE_NAME
           value: pre-prod
     repoURL: 'https://github.com/codefresh-io/cf-helm.git'
-    targetRevision: non-prod-ue1-pre-prod
+    targetRevision: test-pre-prod
