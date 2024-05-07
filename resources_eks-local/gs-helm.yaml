@@ -5,7 +5,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
   # annotations:
-  #   codefresh.io/product: billin_g
+  #   codefresh.io/product: billin-g
 spec:
   project: default
   source:
