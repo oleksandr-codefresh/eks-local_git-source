@@ -4,8 +4,8 @@ metadata:
   name: gb-helm
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
-  # annotations:
-  #   codefresh.io/product: billin-g
+  annotations:
+    codefresh.io/product: billin-g
 spec:
   project: default
   source:
