@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-guesbook-prod
+  annotations: 
+    codefresh.io/product: helm-guestbook
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/foreground
+spec:
+  project: default
+  source:
+    path: products/helm-guestbook-prod
+    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+    targetRevision: personal-eks
+  destination:
+    name: in-cluster
+    namespace: guestbook-prod
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      prune: true
+      # selfHeal: true
+    retry: {}
+    syncOptions:
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
