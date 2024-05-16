@@ -5,7 +5,7 @@ metadata:
 spec:
   applicationSourceSelector:
     matchExpressions:
-      - key: codefresh.io/product
+      - key: in-product
         operator: Exists
   priority: 0
   versionSource:
