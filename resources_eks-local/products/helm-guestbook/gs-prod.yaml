@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: helm-guesbook-prod
   labels:
-    in-product: true
+    in-product: "true"
   annotations: 
     codefresh.io/product: helm-guestbook
   finalizers:
