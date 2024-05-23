@@ -7,11 +7,11 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
-  ignoreDifferences:
-    - group: batch/v1
-      kind: Job
-      jqPathExpressions:
-      - .spec.template.spec.initContainers[] | select(.name == "wait").resources
+  # ignoreDifferences:
+  #   - group: batch/v1
+  #     kind: Job
+  #     jqPathExpressions:
+  #     - .spec.template.spec.initContainers[] | select(.name == "wait").resources
       # - (.spec.template.spec.initContainers[] | select(.name == "wait")).resources
   project: default
   source:
