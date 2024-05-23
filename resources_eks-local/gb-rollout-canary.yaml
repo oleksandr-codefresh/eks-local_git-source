@@ -11,7 +11,8 @@ spec:
     - group: batch/v1
       kind: Job
       jqPathExpressions:
-      - (.spec.template.spec.initContainers[] | select(.name == "wait")).resources
+      - .spec.template.spec.initContainers[] | select(.name == "wait").resources
+      # - (.spec.template.spec.initContainers[] | select(.name == "wait")).resources
   project: default
   source:
     path: guestbooks/guestbook-rollout
@@ -30,7 +31,7 @@ spec:
     automated:
       allowEmpty: true
       prune: true
-      selfHeal: true
+      # selfHeal: true
     retry: {}
     syncOptions:
       # - PrunePropagationPolicy=foreground
