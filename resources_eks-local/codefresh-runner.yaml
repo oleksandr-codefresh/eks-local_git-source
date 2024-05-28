@@ -28,7 +28,8 @@ spec:
           dind-lv-monitor: 
             enabled: false # when scaled down runner
         runtime:
-          enabled: false # when scaled down runner
+          gencerts:
+            enabled: false # when scaled down runner
   destination:
     name: in-cluster
     namespace: codefresh-runner
