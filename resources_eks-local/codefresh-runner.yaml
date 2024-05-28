@@ -10,16 +10,14 @@ spec:
     repoURL: 'quay.io/codefresh'
     targetRevision: 6.3.29
     chart: cf-runtime
+    # pre-requisite - https://medium.com/@qdrddr/argocd-app-with-helm-from-oci-repo-e52066647d99
     helm:
       valuesObject:
         global:
           codefreshToken: "6655d9fea29f9c036a276327.614536e1c40ed020c112ba7e0b4b0b0f"
           accountId: "65c5f89ca4bb5cd2c5d9c415"
-          # -- K8s context name (required!)
           context: "docker-desktop"
-          # If omitted, the following format will be used '{{ .Values.global.context }}_{{ .Release.Namespace }}'
           agentName: "eks-alex"
-          # If omitted, the following format will be used '{{ .Values.global.context }}/{{ .Release.Namespace }}'
           runtimeName: "eks-alex"  
           codefreshHost: "https://alexs-platform.ngrok.io"
   destination:
