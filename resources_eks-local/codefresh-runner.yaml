@@ -22,9 +22,9 @@ spec:
           runtimeName: "eks-alex"  
           codefreshHost: "https://alexs-platform.ngrok.io"
         runner:
-          replicasCount: 1
+          replicasCount: 0
         volumeProvisioner:
-          replicasCount: 1
+          replicasCount: 0
           # dind-lv-monitor:
           #   enabled: false
         # appProxy:
