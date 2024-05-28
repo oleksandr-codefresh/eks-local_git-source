@@ -25,14 +25,10 @@ spec:
           replicasCount: 0
         volumeProvisioner:
           replicasCount: 0
-          # dind-lv-monitor:
-          #   enabled: false
-        # appProxy:
-        #   replicasCount: 1
-        # monitor:
-        #   replicasCount: 1
-        # event-exporter:
-        #   replicasCount: 1
+          dind-lv-monitor: 
+            enabled: false # when scaled down runner
+        runtime:
+          enabled: false # when scaled down runner
   destination:
     name: in-cluster
     namespace: codefresh-runner
