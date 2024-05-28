@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: codefresh-runner
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/foreground
+spec:
+  project: default
+  source:
+    repoURL: 'oci://quay.io/codefresh/cf-runtime'
+    targetRevision: 6.3.29
+    chart: cf-runtime
+    helm:
+      valuesObject:
+        global:
+          codefreshToken: "6655d9fea29f9c036a276327.614536e1c40ed020c112ba7e0b4b0b0f"
+          accountId: "65c5f89ca4bb5cd2c5d9c415"
+          # -- K8s context name (required!)
+          # context: ""
+          # If omitted, the following format will be used '{{ .Values.global.context }}_{{ .Release.Namespace }}'
+          agentName: "eks-alex"
+          # If omitted, the following format will be used '{{ .Values.global.context }}/{{ .Release.Namespace }}'
+          runtimeName: "eks-alex"  
+          codefreshHost: "https://alexs-platform.ngrok.io"
+  destination:
+    name: in-cluster
+    namespace: codefresh-runner
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      prune: true
+      # selfHeal: true
+    retry: {}
+    syncOptions:
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
