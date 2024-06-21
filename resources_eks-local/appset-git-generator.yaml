@@ -1,27 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: app-set-generated
+  name: app-set-git-generator
 spec:
   generators:
   - git:
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-      revision: eks-local
+      revision: personal-eks
       directories:
-      - path: git-generator/*
+      - path: app-set-git-generator/*
   template:
     metadata:
       name: 'gen-{{path.basename}}'
       namespace: cf-apps
       annotations: 
         codefresh.io/app-group: 'appSet, {{path.basename}}'
-      finalizers:
-        - resources-finalizer.argocd.argoproj.io/foreground
     spec:
       project: "default"
       source:
         repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-        targetRevision: eks-local
+        targetRevision: personal-eks
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
