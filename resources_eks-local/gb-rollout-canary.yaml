@@ -4,7 +4,7 @@ metadata:
   name: guesbook-canary-roll
   annotations: 
     codefresh.io/app-long-sync-minutes: '1'
-    change: sdsssssddsfdfs
+    change: sdssss----
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
