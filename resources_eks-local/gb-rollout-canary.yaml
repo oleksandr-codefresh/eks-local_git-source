@@ -5,6 +5,8 @@ metadata:
   annotations: 
     codefresh.io/app-long-sync-minutes: '1'
     change: sdssss===
+  labels: 
+    sdsds: sdsd
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
