@@ -4,7 +4,7 @@ metadata:
   name: guesbook-canary-roll
   annotations: 
     codefresh.io/app-long-sync-minutes: '1'
-    change: sdssss===
+    change: sdssss===-
   labels: 
     sdsds: sdsd
   finalizers:
