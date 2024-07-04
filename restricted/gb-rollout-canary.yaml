@@ -16,7 +16,7 @@ spec:
   #     jqPathExpressions:
   #     - .spec.template.spec.initContainers[] | select(.name == "wait").resources
       # - (.spec.template.spec.initContainers[] | select(.name == "wait")).resources
-  project: default
+  project: restricted
   source:
     path: guestbooks/guestbook-rollout
     # path: kustomize-guestbook
