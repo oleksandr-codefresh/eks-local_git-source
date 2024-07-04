@@ -29,7 +29,7 @@ spec:
   destination:
     name: in-cluster
     # name: alina
-    namespace: test-dev
+    namespace: test-restricted
   syncPolicy:
     automated:
       allowEmpty: true
