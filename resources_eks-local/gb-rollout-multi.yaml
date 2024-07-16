@@ -9,16 +9,16 @@ metadata:
 spec:
   project: default
   sources:
-    - path: guestbooks/guestbook-rollout-multisourced/ref
+    - path: gs-rollout-multisourced/ref
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-      targetRevision: personal-eks
+      targetRevision: multisource-ref
       ref: test
     - path: guestbooks/guestbook-rollout-multisourced/part-one
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
       targetRevision: personal-eks
-    - path: guestbooks/guestbook-rollout-multisourced/part-two
+    - path: gs-rollout-multisourced/part-two
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-      targetRevision: personal-eks
+      targetRevision: multisource-2
   destination:
     name: in-cluster
     # name: alina
