@@ -13,10 +13,10 @@ spec:
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
       targetRevision: personal-eks
       ref: test
-    - path: guestbooks/guestbook-rollout-multisourced/part-2
+    - path: guestbooks/guestbook-rollout-multisourced/part-one
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
       targetRevision: personal-eks-2
-    - path: guestbooks/guestbook-rollout-multisourced/part-1
+    - path: guestbooks/guestbook-rollout-multisourced/part-two
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
       targetRevision: personal-eks
   destination:
