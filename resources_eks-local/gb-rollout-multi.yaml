@@ -15,7 +15,7 @@ spec:
       ref: test
     - path: guestbooks/guestbook-rollout-multisourced/part-one
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-      targetRevision: personal-eks-2
+      targetRevision: personal-eks
     - path: guestbooks/guestbook-rollout-multisourced/part-two
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
       targetRevision: personal-eks
