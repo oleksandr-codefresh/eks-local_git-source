@@ -3,7 +3,7 @@ kind: ApplicationSet
 metadata:
   name: app-set-git-generator
   labels: 
-    test: sd
+    test: sdsdsd s dsd
 spec:
   generators:
   - git:
