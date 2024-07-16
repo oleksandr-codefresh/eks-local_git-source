@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   sources:
-    - path: guestbooks/guestbook-rollout-multisourced/part-1
+    - path: guestbooks/guestbook-rollout-multisourced/ref
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
       targetRevision: personal-eks
       ref: test
