@@ -13,12 +13,12 @@ spec:
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
       targetRevision: personal-eks
       ref: test
-    - path: guestbooks/guestbook-rollout-multisourced/part-1
-      repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-      targetRevision: personal-eks
     - path: guestbooks/guestbook-rollout-multisourced/part-2
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
       targetRevision: personal-eks-2
+    - path: guestbooks/guestbook-rollout-multisourced/part-1
+      repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+      targetRevision: personal-eks
   destination:
     name: in-cluster
     # name: alina
