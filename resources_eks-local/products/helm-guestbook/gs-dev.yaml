@@ -16,7 +16,7 @@ spec:
     targetRevision: personal-eks
   destination:
     name: in-cluster
-    namespace: guestbook-dev
+    namespace: guestbook-dev-2
   syncPolicy:
     automated:
       allowEmpty: true
@@ -24,9 +24,10 @@ spec:
       # selfHeal: true
     retry: {}
     syncOptions:
-      - PrunePropagationPolicy=foreground
-      - Replace=false
-      - PruneLast=false
-      - Validate=true
-      - CreateNamespace=true
-      - ApplyOutOfSyncOnly=false
+      - allowEmpty=true
+      # - PrunePropagationPolicy=foreground
+      # - Replace=false
+      # - PruneLast=false
+      # - Validate=true
+      # - CreateNamespace=true
+      # - ApplyOutOfSyncOnly=false
