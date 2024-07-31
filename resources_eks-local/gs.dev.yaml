@@ -15,8 +15,15 @@ spec:
     namespace: test-dev
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: false
+      allowEmpty: false
     syncOptions:
-      - CreateNamespace=true
-      - ServerSideApply=false
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=false
+      - ApplyOutOfSyncOnly=false
+      - ServerSideApply=true
+      - RespectIgnoreDifferences=false
