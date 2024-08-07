@@ -16,7 +16,7 @@ spec:
     targetRevision: personal-eks
   destination:
     name: in-cluster
-    namespace: guestbook-dev-2
+    namespace: guestbook-dev
   syncPolicy:
     automated:
       allowEmpty: true
@@ -25,9 +25,9 @@ spec:
     retry: {}
     syncOptions:
       - allowEmpty=true
-      # - PrunePropagationPolicy=foreground
-      # - Replace=false
-      # - PruneLast=false
-      # - Validate=true
-      # - CreateNamespace=true
-      # - ApplyOutOfSyncOnly=false
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
