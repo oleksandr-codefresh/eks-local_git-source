@@ -4,6 +4,7 @@ metadata:
   name: helm-guesbook-prod
   labels:
     in-product: "true"
+    sdasd: 'dsd'
   annotations: 
     codefresh.io/product: helm-guestbook
   finalizers:
