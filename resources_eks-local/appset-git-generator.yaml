@@ -1,39 +1,39 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: ApplicationSet
-# metadata:
-#   name: app-set-git-generator
-#   labels: 
-#     test: sdsdsdsd
-# spec:
-#   generators:
-#   - git:
-#       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-#       revision: personal-eks
-#       directories:
-#       - path: app-set-git-generator/*
-#   template:
-#     metadata:
-#       name: 'gen-{{path.basename}}'
-#       namespace: cf-apps
-#       annotations: 
-#         codefresh.io/app-group: 'appSet, {{path.basename}}'
-#     spec:
-#       project: "default"
-#       source:
-#         repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-#         targetRevision: personal-eks
-#         path: '{{path}}'
-#       destination:
-#         server: https://kubernetes.default.svc
-#         namespace: test
-#       syncPolicy:
-#         automated:
-#           prune: true
-#           selfHeal: true
-#         syncOptions:
-#           - PrunePropagationPolicy=foreground
-#           - Replace=false
-#           - PruneLast=false
-#           - Validate=true
-#           - CreateNamespace=true
-#           - ApplyOutOfSyncOnly=false
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: app-set-git-generator
+  labels: 
+    test: sdsdsdsd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+      revision: personal-eks
+      directories:
+      - path: app-set-git-generator/*
+  template:
+    metadata:
+      name: 'gen-{{path.basename}}'
+      namespace: cf-apps
+      annotations: 
+        codefresh.io/app-group: 'appSet, {{path.basename}}'
+    spec:
+      project: "default"
+      source:
+        repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+        targetRevision: personal-eks
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: test
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - PrunePropagationPolicy=foreground
+          - Replace=false
+          - PruneLast=false
+          - Validate=true
+          - CreateNamespace=true
+          - ApplyOutOfSyncOnly=false
