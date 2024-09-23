@@ -36,7 +36,12 @@ spec:
     #   allowEmpty: true
     #   prune: true
     #   selfHeal: true
-    retry: {}
+    retry:
+      limit: 2
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
     syncOptions:
       # - PrunePropagationPolicy=foreground
       - Replace=false
