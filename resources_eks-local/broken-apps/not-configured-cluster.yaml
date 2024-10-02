@@ -1,29 +1,29 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: not-configured-cluster
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io/foreground
-spec:
-  project: default
-  source:
-    path: kustomize-guestbook
-    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-    targetRevision: personal-eks
-  destination:
-    server: https://vcluster.hgr-eti-codefresh-40782ee.svc.cluster.local
-    namespace: test-dev-2
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-      allowEmpty: false
-    syncOptions:
-      - PrunePropagationPolicy=foreground
-      - Replace=false
-      - PruneLast=false
-      - Validate=true
-      - CreateNamespace=true
-      - ApplyOutOfSyncOnly=false
-      - ServerSideApply=false
-      - RespectIgnoreDifferences=false
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: not-configured-cluster
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io/foreground
+# spec:
+#   project: default
+#   source:
+#     path: kustomize-guestbook
+#     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+#     targetRevision: personal-eks
+#   destination:
+#     server: https://vcluster.hgr-eti-codefresh-40782ee.svc.cluster.local
+#     namespace: test-dev-2
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#       allowEmpty: false
+#     syncOptions:
+#       - PrunePropagationPolicy=foreground
+#       - Replace=false
+#       - PruneLast=false
+#       - Validate=true
+#       - CreateNamespace=true
+#       - ApplyOutOfSyncOnly=false
+#       - ServerSideApply=false
+#       - RespectIgnoreDifferences=false
