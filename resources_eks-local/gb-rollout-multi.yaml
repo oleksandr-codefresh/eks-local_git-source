@@ -20,7 +20,7 @@ spec:
       repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
       targetRevision: multisource-2
     - path: multi-sourced-apps-parts/gs-rollout-part-3
-      repoURL: https://github.dev/oleksandr-codefresh/eks-local_git-source
+      repoURL: https://github.com/oleksandr-codefresh/eks-local_git-source
       targetRevision: main
   destination:
     name: in-cluster
