@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: wwt-set
+spec:
+  generators:
+    - list:
+      elements:
+      - name: wwt-app-1
+  goTemplate: true
+  template:
+    metadata:
+      name: '{{.name}}'
+    spec:
+      destination:
+        name: in-cluster
+        namespace: test-wwt
+      project: default
+      sources:
+        - helm:
+            ignoreMissingValueFiles: true
+            valueFiles:
+              - $globalAppConfig/dev.yaml
+              - values.yaml
+          path: helm-multisource/chart
+          repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+          targetRevision: personal-eks
+        - ref: globalAppConfig
+          repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+          path: helm-multisource/extra-values
+          targetRevision: personal-eks
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
