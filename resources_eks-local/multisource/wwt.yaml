@@ -4,7 +4,7 @@ metadata:
   name: wwt-set
 spec:
   generators:
-    - list:
+  - list:
       elements:
       - name: wwt-app-1
   goTemplate: true
