@@ -20,8 +20,8 @@ spec:
         - helm:
             ignoreMissingValueFiles: true
             valueFiles:
-              - $globalAppConfig/dev.yaml
               - values.yaml
+              - $globalAppConfig/dev.yaml
           path: helm-multisource/chart
           repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
           targetRevision: personal-eks
