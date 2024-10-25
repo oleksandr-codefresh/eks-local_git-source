@@ -39,7 +39,7 @@ metadata:
 spec:
   destination:
     name: in-cluster
-    namespace: istio
+    namespace: istio-system
   source:
     repoURL: https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.22.6
