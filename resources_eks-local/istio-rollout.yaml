@@ -32,3 +32,6 @@ spec:
     kind: VirtualService
     jsonPointers:
       - /spec/http/0
+  - kind: Service
+    jsonPointers:
+      - /spec/selector
