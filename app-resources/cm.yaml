@@ -1,8 +1,0 @@
-apiVersion: v1
-data:
-  key: dsds
-kind: ConfigMap
-metadata:
-  name: app-from-other-repo
-  annotations:
-    reason: "this cm is used for multisourced app from different repourl"

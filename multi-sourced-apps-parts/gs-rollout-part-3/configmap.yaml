@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: gs-multi-part-3-cf
 data:
-  key: tests
+  key: testsddd
