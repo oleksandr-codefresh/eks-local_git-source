@@ -3,6 +3,56 @@ kind: ApplicationSet
 metadata:
   labels:
     app.kubernetes.io/instance: production
+  name: guest-appset-old
+spec:
+  generators:
+    - git:
+        files:
+          - path: dis/**/test-app/rollout.yaml
+        repoURL: >-
+          https://github.com/oleksandr-codefresh/eks-local_git-source
+        revision: main
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: '{{ index .path.segments 1 }}-{{ index .path.segments 2 }}'
+        app.kubernetes.io/part-of: '{{ index .path.segments 0 }}'
+      name: '{{ index .path.segments 1 }}-{{ index .path.segments 2 }}'
+    spec:
+      destination:
+        name: in-cluster
+        # name: alina
+        namespace: '{{ index .path.segments 1 }}'
+      ignoreDifferences:
+        - group: apps
+          jsonPointers:
+            - /spec/replicas
+          kind: Rollout
+      project: default
+      revisionHistoryLimit: 5
+      source:
+        path: '{{ .path.path }}'
+        repoURL: https://github.com/oleksandr-codefresh/eks-local_git-source
+        targetRevision: main
+      syncPolicy:
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: true
+        managedNamespaceMetadata:
+          labels:
+            policy.sigstore.dev/include: 'false'
+        retry:
+          limit: 3
+        syncOptions:
+          - CreateNamespace=true
+
+
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  labels:
+    app.kubernetes.io/instance: production
   name: guest-appset-go-temp
 spec:
   goTemplate: true
