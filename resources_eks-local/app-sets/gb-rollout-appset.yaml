@@ -3,7 +3,7 @@ kind: ApplicationSet
 metadata:
   labels:
     app.kubernetes.io/instance: production
-  name: guest-appset
+  name: guest-appset-new
 spec:
   generators:
     - git:
