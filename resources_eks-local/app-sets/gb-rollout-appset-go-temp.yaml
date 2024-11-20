@@ -48,9 +48,9 @@ spec:
           limit: 3
         syncOptions:
           - CreateNamespace=true
-  templatePatch: |
-    {{- if eq .autoSync false}}
-    spec:
-      syncPolicy:
-        automated: ~
-    {{- end }} 
+  # templatePatch: |
+  #   {{- if eq .autoSync false}}
+  #   spec:
+  #     syncPolicy:
+  #       automated: ~
+  #   {{- end }} 
