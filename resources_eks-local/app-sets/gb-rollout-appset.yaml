@@ -1,8 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  labels:
-    app.kubernetes.io/instance: production
   name: guest-appset-old
 spec:
   generators:
