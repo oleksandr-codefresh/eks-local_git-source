@@ -1,26 +1,26 @@
-apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
-metadata:
-  name: curcular-deps
-spec:
-  goTemplate: true
-  goTemplateOptions: ["missingkey=error"]
-  generators:
-  - list:
-      elements:
-      - name: curcular-deps
-  template:
-    metadata:
-      name: '{{.name}}'
-    spec:
-      project: "default"
-      source:
-        path: products/helm-guestbook-dev
-        repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-        targetRevision: personal-eks
-      destination:
-        name: in-cluster
-        namespace: curc-deps
-      syncPolicy:
-        syncOptions:
-            - CreateNamespace=true
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: circular-deps
+# spec:
+#   goTemplate: true
+#   goTemplateOptions: ["missingkey=error"]
+#   generators:
+#   - list:
+#       elements:
+#       - name: circular-deps
+#   template:
+#     metadata:
+#       name: '{{.name}}'
+#     spec:
+#       project: "default"
+#       source:
+#         path: products/helm-guestbook-dev
+#         repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+#         targetRevision: personal-eks
+#       destination:
+#         name: in-cluster
+#         namespace: curc-deps
+#       syncPolicy:
+#         syncOptions:
+#             - CreateNamespace=true
