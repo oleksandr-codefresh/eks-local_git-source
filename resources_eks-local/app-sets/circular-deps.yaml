@@ -20,4 +20,4 @@ spec:
         targetRevision: personal-eks
       destination:
         name: in-cluster
-        namespace: guestbook-dev
+        namespace: curc-deps
