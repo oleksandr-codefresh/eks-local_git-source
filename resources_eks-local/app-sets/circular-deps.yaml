@@ -21,5 +21,6 @@ spec:
       destination:
         name: in-cluster
         namespace: curc-deps
-      syncOptions:
-          - CreateNamespace=true
+      syncPolicy:
+        syncOptions:
+            - CreateNamespace=true
