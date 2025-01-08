@@ -17,19 +17,23 @@ spec:
         name: in-cluster
         namespace: 'test-wwt-{{.name}}'
       project: default
-      sources:
-        - helm:
-            ignoreMissingValueFiles: true
-            valueFiles:
-              - values.yaml
-              - $globalAppConfig/helm-multisource/extra-values/values.yaml
-          path: helm-multisource/chart
-          repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-          targetRevision: personal-eks
-        - ref: globalAppConfig
-          repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-          path: helm-multisource/extra-values
-          targetRevision: personal-eks
+      source:
+        path: helm-multisource/chart
+        repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+        targetRevision: personal-eks
+      # sources:
+      #   - helm:
+      #       ignoreMissingValueFiles: true
+      #       valueFiles:
+      #         - values.yaml
+      #         - $globalAppConfig/helm-multisource/extra-values/values.yaml
+      #     path: helm-multisource/chart
+      #     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+      #     targetRevision: personal-eks
+      #   - ref: globalAppConfig
+      #     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+      #     path: helm-multisource/extra-values
+      #     targetRevision: personal-eks
       syncPolicy:
         automated:
           prune: true
