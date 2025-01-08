@@ -15,7 +15,7 @@ spec:
     spec:
       destination:
         name: in-cluster
-        namespace: test-wwt
+        namespace: 'test-wwt-{{.name}}'
       project: default
       sources:
         - helm:
