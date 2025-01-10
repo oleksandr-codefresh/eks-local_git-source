@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ms-canary-date
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/foreground
+  annotations:
+    argocd.argoproj.io/manifest-generate-paths: .
+spec:
+  project: default
+  destination:
+    name: in-cluster
+    namespace: test-ms-namespace
+  sources:
+    - path: multi-source/canary-rollout/part-one
+      repoURL: https://github.com/testcodefresh/argocd-example-apps.git
+      targetRevision: helm-01_ms-canary-date
+    - path: multi-source/canary-rollout/part-two
+      repoURL: https://github.com/testcodefresh/argocd-example-apps.git
+      targetRevision: helm-01_ms-canary-date
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
+      - ServerSideApply=false
+      - RespectIgnoreDifferences=false
