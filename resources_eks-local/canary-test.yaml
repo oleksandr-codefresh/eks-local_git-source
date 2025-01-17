@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/manifest-generate-paths: .
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/foreground
+  name: canary-test
+spec:
+  destination:
+    name: in-cluster
+    namespace: test-namespace
+  project: default
+  source:
+    path: canary-rollout-ingress
+    repoURL: https://github.com/testcodefresh/argocd-example-apps.git
+    targetRevision: test-678929f299ed5ccab27467c0_canary-678929f299ed5ccab27467c0
+  syncPolicy:
+    automated:
+      allowEmpty: false
+      prune: true
+      selfHeal: false
+    syncOptions:
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
+      - ServerSideApply=false
+      - RespectIgnoreDifferences=false
