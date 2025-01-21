@@ -29,3 +29,10 @@ spec:
       - ApplyOutOfSyncOnly=false
       - ServerSideApply=false
       - RespectIgnoreDifferences=false
+---
+apiVersion: v1
+data:
+  key: dsds
+kind: ConfigMap
+metadata:
+  name: app-ssssss
