@@ -10,6 +10,8 @@ spec:
   project: default
   source:
     path: helm-guestbook
+    helm:
+      releaseName: guest
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
