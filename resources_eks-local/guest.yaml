@@ -6,7 +6,7 @@ metadata:
     codefresh.io/app-group: 'test'
   finalizers:
     # - resources-finalizer.argocd.argoproj.io/foreground
-    - resources-finalizer.argocd.argoproj.io/non_cascading
+    - resources-finalizer.argocd.argoproj.io/non-cascading
 spec:
   project: default
   source:
