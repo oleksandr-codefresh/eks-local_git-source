@@ -2,24 +2,26 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: guest
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io/background
-  annotations:
-    codefresh.io/app-group: test2
+  annotations: 
+    codefresh.io/app-group: 'test'
+  # finalizers:
+    # - resources-finalizer.argocd.argoproj.io/foreground
+    # - resources-finalizer.argocd.argoproj.io/non-cascading
 spec:
   project: default
+  source:
+    path: helm-guestbook
+    helm:
+      releaseName: guest
+    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+    targetRevision: personal-eks
   destination:
     name: in-cluster
     namespace: test-ns
-  source:
-    path: helm-guestbook
-    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-    targetRevision: personal-eks
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-      allowEmpty: false
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
@@ -27,5 +29,3 @@ spec:
       - Validate=true
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=false
-      - ServerSideApply=true
-      - RespectIgnoreDifferences=false
