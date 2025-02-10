@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: jnj
+spec:
+  eventBusName: codefresh-eventbus
+  service:
+    ports:
+      - port: 80
+  template:
+    serviceAccountName: argo-server
+  github:
+    github-7a6d3e4d-4360-4f95-b5b8-1ff660cc350b:
+      events:
+        - create
+      repositories:
+        - owner: oleksandr-codefresh
+          names:
+            - helm-01
+      webhook:
+        port: '80'
+        method: POST
+        endpoint: /webhooks/helm-01/jnj/github-7a6d3e4d-4360-4f95-b5b8-1ff660cc350b
+        url: https://alex-hermes-local.rnd.sandbox.codefresh.io
+      active: true
+      insecure: false
+      contentType: json
+      deleteHookOnFinish: true
+      apiToken:
+        name: runtime-repo-creds-secret
+        key: password

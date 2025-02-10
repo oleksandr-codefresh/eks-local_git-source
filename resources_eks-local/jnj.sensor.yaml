@@ -1,0 +1,59 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: jnj
+spec:
+  template:
+    serviceAccountName: argo-server
+  eventBusName: codefresh-eventbus
+  dependencies:
+    - name: github-7a6d3e4d-4360-4f95-b5b8-1ff660cc350b
+      eventName: github-7a6d3e4d-4360-4f95-b5b8-1ff660cc350b
+      eventSourceName: jnj
+      filters:
+        data:
+          - path: body.X-GitHub-Event
+            value:
+              - create
+            type: string
+          - path: body.refType
+            value:
+              - branch
+            type: string
+  triggers:
+    - template:
+        name: jnjn
+        conditions: github-7a6d3e4d-4360-4f95-b5b8-1ff660cc350b
+        argoWorkflow:
+          operation: submit
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: WorkflowTemplate
+              metadata:
+                generateName: jnj-jnjn-
+              spec:
+                arguments:
+                  parameters:
+                    - name: APP_NAME
+                      value: ''
+                    - name: APP_NAMESPACE
+                      value: ''
+                    - name: SERVER_URL
+                      value: >-
+                        argo-cd-server.{{workflow.parameters.APP_NAMESPACE}}.svc.cluster.local
+                workflowTemplateRef:
+                  name: argo-hub.starter-manual-sync.0.0.2
+          parameters:
+            - dest: spec.arguments.parameters.0.value
+              src:
+                dependencyName: github-7a6d3e4d-4360-4f95-b5b8-1ff660cc350b
+                dataTemplate: test
+            - dest: spec.arguments.parameters.1.value
+              src:
+                dependencyName: github-7a6d3e4d-4360-4f95-b5b8-1ff660cc350b
+                dataTemplate: test
+            - dest: spec.arguments.parameters.2.value
+              src:
+                dependencyName: github-7a6d3e4d-4360-4f95-b5b8-1ff660cc350b
+                dataTemplate: test
