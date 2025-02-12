@@ -3,7 +3,7 @@ kind: WorkflowTemplate
 metadata:
   name: argo-hub.starter-manual-sync.0.0.2
   annotations:
-    test: sdsdsdd
+    test: sdsdsdds
     version: 0.0.2
     codefresh.io/workflow-origin: promotion
     argo-hub/version: '0.0.2'
