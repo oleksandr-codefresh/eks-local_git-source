@@ -3,6 +3,7 @@ kind: WorkflowTemplate
 metadata:
   name: argo-hub.codecov.0.0.1
   annotations:
+    dfff: dsds
     argo-hub/version: '0.0.1'
     argo-hub/description: 'codecov template'
     argo-hub/categories: 'argo'
