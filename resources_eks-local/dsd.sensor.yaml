@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: dsd
+spec:
+  template:
+    serviceAccountName: argo-server
+  eventBusName: codefresh-eventbus
+  dependencies:
+    - name: github-cc2c472a-1fae-4418-8bbd-a3e0e8d6c80c
+      eventName: github-cc2c472a-1fae-4418-8bbd-a3e0e8d6c80c
+      eventSourceName: dsd
+      filters:
+        data:
+          - path: body.X-GitHub-Event
+            value:
+              - push
+            type: string
+          - path: body.ref
+            template: '{{ (split "/" .Input)._1 }}'
+            value:
+              - heads
+            type: string
+          - path: body.head_commit.message
+            comparator: '='
+            type: string
+            value:
+              - ',b,b,b'
+  triggers:
+    - template:
+        name: dsd
+        conditions: github-cc2c472a-1fae-4418-8bbd-a3e0e8d6c80c
+        argoWorkflow:
+          operation: submit
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: WorkflowTemplate
+              metadata:
+                generateName: dsd-dsd-
+              spec:
+                workflowTemplateRef:
+                  name: argo-hub.codecov.0.0.1
+          parameters: []
