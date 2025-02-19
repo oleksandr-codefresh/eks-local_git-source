@@ -1,0 +1,49 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: sadsd
+spec:
+  template:
+    serviceAccountName: argo-server
+  eventBusName: codefresh-eventbus
+  dependencies:
+    - name: github-de6f98f0-ab8c-4a7c-9f8a-07fc0ecf27b5
+      eventName: github-de6f98f0-ab8c-4a7c-9f8a-07fc0ecf27b5
+      eventSourceName: sadsd
+      filters:
+        data:
+          - path: body.X-GitHub-Event
+            value:
+              - push
+            type: string
+          - path: body.ref
+            template: '{{ (split "/" .Input)._1 }}'
+            value:
+              - heads
+            type: string
+          - path: body.head_commit.message
+            comparator: '='
+            type: string
+            value:
+              - dsdsdsdvvvv.....
+  triggers:
+    - template:
+        name: sddsd
+        conditions: github-de6f98f0-ab8c-4a7c-9f8a-07fc0ecf27b5
+        argoWorkflow:
+          operation: submit
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: WorkflowTemplate
+              metadata:
+                generateName: sadsd-sddsd-
+              spec:
+                arguments:
+                  parameters:
+                    - name: SERVER_URL
+                      value: >-
+                        argo-cd-server.{{workflow.parameters.APP_NAMESPACE}}.svc.cluster.local
+                workflowTemplateRef:
+                  name: argo-hub.starter-manual-sync.0.0.2
+          parameters: []
