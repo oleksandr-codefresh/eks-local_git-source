@@ -20,6 +20,8 @@ spec:
       allowEmpty: false
       prune: true
       selfHeal: false
+    retry:
+      limit: 1
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
