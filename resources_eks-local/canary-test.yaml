@@ -21,7 +21,7 @@ spec:
       prune: true
       selfHeal: false
     retry:
-      limit: '1'
+      limit: 1
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
