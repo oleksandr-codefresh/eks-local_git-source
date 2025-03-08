@@ -2,6 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: byoa-guest-rollout
+  annotations:
+    codefresh.io/product: helm-guestbook
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
