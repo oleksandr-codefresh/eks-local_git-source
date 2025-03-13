@@ -20,7 +20,7 @@ spec:
         release: helm-guesbook-dev
     spec:
       containers:
-        - image: xeonalex/guesbook:0.2
+        - image: xeonalex/guesbook:0.3
           imagePullPolicy: IfNotPresent
           livenessProbe:
             httpGet:
