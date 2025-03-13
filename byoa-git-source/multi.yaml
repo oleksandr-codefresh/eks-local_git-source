@@ -28,10 +28,10 @@ spec:
     # name: alina
     namespace: multi-test-dev
   syncPolicy:
-    # automated:
-    #   allowEmpty: true
-    #   prune: true
-    #   selfHeal: true
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
     retry: {}
     syncOptions:
       # - PrunePropagationPolicy=foreground
