@@ -6,7 +6,6 @@ metadata:
   labels:
     argocd.argoproj.io/instance: test-date-default-git-source
   name: byoa-ms-canary-date
-  namespace: test-date
 spec:
   destination:
     name: in-cluster
