@@ -14,10 +14,10 @@ spec:
   sources:
     - path: multi-source/canary-rollout/part-one
       repoURL: https://github.com/testcodefresh/argocd-example-apps.git
-      targetRevision: test-date_ms-canary-date
+      targetRevision: master
     - path: multi-source/canary-rollout/part-two
       repoURL: https://github.com/testcodefresh/argocd-example-apps.git
-      targetRevision: test-date_ms-canary-date
+      targetRevision: master
   syncPolicy:
     automated:
       allowEmpty: false
