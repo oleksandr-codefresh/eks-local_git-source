@@ -3,6 +3,7 @@ kind: Application
 metadata:
   name: guesbook-canary-roll
   annotations:
+    codefresh.io/product: helm-guestbook
     codefresh.io/app-long-sync-minutes: '1'
     change: new-valie
     argocd.argoproj.io/manifest-generate-paths: .
