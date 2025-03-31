@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rollouts-e2e-cluster
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/foreground
+spec:
+  project: default
+  source:
+    repoURL: https://codefresh-io.github.io/argo-helm
+    chart: argo-rollouts
+    targetRevision: 2.37.3-2-v1.7.2-cap-CR-26082
+  destination:
+    name: ue1-e2e
+    namespace: runtime-dev-ns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
