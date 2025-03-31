@@ -13,7 +13,8 @@ spec:
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
-    name: in-cluster
+    # name: in-cluster
+    server: https://2460939F368460F5FACBF11FADEA0D79.gr7.us-east-1.eks.amazonaws.com
     # name: ue1-e2e
     namespace: runtime-dev-ns
   syncPolicy:
