@@ -17,8 +17,8 @@ spec:
     name: ue1-e2e
     namespace: runtime-dev-ns
   syncPolicy:
-    automated:
-      prune: true
+    # automated:
+    #   prune: true
       # selfHeal: true
     syncOptions:
       - PrunePropagationPolicy=foreground
