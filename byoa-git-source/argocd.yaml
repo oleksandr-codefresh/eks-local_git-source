@@ -8,8 +8,8 @@ spec:
   project: default
   source:
     chart: argo-cd
-    repoURL: https://github.com/argoproj/argo-helm
-    targetRevision: argo-cd-7.8.22
+    repoURL: oci://ghcr.io/argoproj/argo-helm
+    targetRevision: 7.8.22
   destination:
     name: in-cluster
     # name: ue1-e2e
