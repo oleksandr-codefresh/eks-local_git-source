@@ -42,7 +42,6 @@ spec:
                         pathType: Prefix
   destination:
     name: in-cluster
-    # name: ue1-e2e
     namespace: argocd
   syncPolicy:
     # automated:
