@@ -11,7 +11,7 @@ spec:
     repoURL: https://argoproj.github.io/argo-helm
     targetRevision: 7.8.22
     helm:
-      values:
+      valuesObject:
         configs:
           cm:
             accounts.admin: apiKey,login
