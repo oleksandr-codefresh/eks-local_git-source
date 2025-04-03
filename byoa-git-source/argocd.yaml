@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     chart: argo-cd
-    repoURL: oci://ghcr.io/argoproj/argo-helm
+    repoURL: https://argoproj.github.io/argo-helm
     targetRevision: 7.8.22
   destination:
     name: in-cluster
