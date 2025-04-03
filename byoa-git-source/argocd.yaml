@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io/foreground
+spec:
+  project: default
+  source:
+    chart: argo-cd
+    repoURL: https://github.com/argoproj/argo-helm
+    targetRevision: v2.14.3
+  destination:
+    name: in-cluster
+    # name: ue1-e2e
+    namespace: argocd
+  syncPolicy:
+    # automated:
+    #   prune: true
+    #   selfHeal: true
+    syncOptions:
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
