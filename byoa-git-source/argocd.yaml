@@ -20,16 +20,13 @@ spec:
               discovery.lua: |
                 actions = {}
                 local fullyPromoted = obj.status.currentPodHash == obj.status.stableRS
-                actions["pause"] = {["disabled"] = fullyPromoted or obj.spec.paused == true}
+                -- actions["pause"] = {["disabled"] = fullyPromoted or obj.spec.paused == true}
                 actions["skip-current-step"] = {["disabled"] = obj.spec.strategy.canary == nil or obj.spec.strategy.canary.steps == nil or obj.status.currentStepIndex == table.getn(obj.spec.strategy.canary.steps)}
                 return actions
               definitions:
-              - name: pause
-                action.lua: |
-                  obj.spec.paused = true
-                  return obj
               - name: skip-current-step
                 action.lua: |
+                  if
                   if obj.status ~= nil then
                       if obj.spec.strategy.canary ~= nil and obj.spec.strategy.canary.steps ~= nil and obj.status.currentStepIndex < table.getn(obj.spec.strategy.canary.steps) then
                           if obj.status.pauseConditions ~= nil and table.getn(obj.status.pauseConditions) > 0 then
@@ -39,6 +36,10 @@ spec:
                       end
                   end
                   return obj
+          # - name: pause
+          #   action.lua: |
+          #     obj.spec.paused = true
+          #     return obj
           params:
             server.insecure: true
             server.basehref: /argocd
