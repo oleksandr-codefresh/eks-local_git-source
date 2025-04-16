@@ -6,6 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
   name: canary-test
+  namespace: cf-test-apps
 spec:
   destination:
     name: in-cluster
