@@ -12,7 +12,7 @@ spec:
     name: in-cluster
     namespace: test-namespace
   project: default
-  project: non-controller-ns
+  # project: non-controller-ns
   source:
     path: canary-rollout-ingress
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps.git
