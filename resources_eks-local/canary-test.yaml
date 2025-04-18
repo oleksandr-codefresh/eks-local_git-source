@@ -1,35 +1,35 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  annotations:
-    argocd.argoproj.io/manifest-generate-paths: .
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io/foreground
-  name: canary-test
-  # namespace: cf-test-apps
-spec:
-  destination:
-    name: in-cluster
-    namespace: test-namespace
-  project: default
-  # project: non-controller-ns
-  source:
-    path: canary-rollout-ingress
-    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps.git
-    targetRevision: bug-hunt
-  syncPolicy:
-    automated:
-      allowEmpty: false
-      prune: true
-      selfHeal: false
-    retry:
-      limit: 1
-    syncOptions:
-      - PrunePropagationPolicy=foreground
-      - Replace=false
-      - PruneLast=false
-      - Validate=true
-      - CreateNamespace=true
-      - ApplyOutOfSyncOnly=false
-      - ServerSideApply=false
-      - RespectIgnoreDifferences=false
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   annotations:
+#     argocd.argoproj.io/manifest-generate-paths: .
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io/foreground
+#   name: canary-test
+#   # namespace: cf-test-apps
+# spec:
+#   destination:
+#     name: in-cluster
+#     namespace: test-namespace
+#   project: default
+#   # project: non-controller-ns
+#   source:
+#     path: canary-rollout-ingress
+#     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps.git
+#     targetRevision: bug-hunt
+#   syncPolicy:
+#     automated:
+#       allowEmpty: false
+#       prune: true
+#       selfHeal: false
+#     retry:
+#       limit: 1
+#     syncOptions:
+#       - PrunePropagationPolicy=foreground
+#       - Replace=false
+#       - PruneLast=false
+#       - Validate=true
+#       - CreateNamespace=true
+#       - ApplyOutOfSyncOnly=false
+#       - ServerSideApply=false
+#       - RespectIgnoreDifferences=false
