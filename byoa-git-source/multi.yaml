@@ -4,7 +4,7 @@ metadata:
   name: boya-guesbook-prod-roll-multi
   annotations: 
     codefresh.io/app-long-sync-minutes: '1' # comment
-    argocd.argoproj.io/manifest-generate-paths: .
+    # argocd.argoproj.io/manifest-generate-paths: .
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
