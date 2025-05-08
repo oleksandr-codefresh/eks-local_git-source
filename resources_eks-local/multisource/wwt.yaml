@@ -1,42 +1,42 @@
-apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
-metadata:
-  name: wwt-set
-spec:
-  generators:
-  - list:
-      elements:
-      - name: wwt-app-1
-      # - name: wwt-app-2
-  goTemplate: true
-  template:
-    metadata:
-      name: '{{.name}}'
-    spec:
-      destination:
-        name: in-cluster
-        namespace: 'test-wwt-{{.name}}'
-      project: default
-      source:
-        path: helm-multisource/chart
-        repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-        targetRevision: personal-eks
-      # sources:
-      #   - helm:
-      #       ignoreMissingValueFiles: true
-      #       valueFiles:
-      #         - values.yaml
-      #         - $globalAppConfig/helm-multisource/extra-values/values.yaml
-      #     path: helm-multisource/chart
-      #     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-      #     targetRevision: personal-eks
-      #   - ref: globalAppConfig
-      #     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-      #     path: helm-multisource/extra-values
-      #     targetRevision: personal-eks
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-        syncOptions:
-          - CreateNamespace=true
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: wwt-set
+# spec:
+#   generators:
+#   - list:
+#       elements:
+#       - name: wwt-app-1
+#       # - name: wwt-app-2
+#   goTemplate: true
+#   template:
+#     metadata:
+#       name: '{{.name}}'
+#     spec:
+#       destination:
+#         name: in-cluster
+#         namespace: 'test-wwt-{{.name}}'
+#       project: default
+#       source:
+#         path: helm-multisource/chart
+#         repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+#         targetRevision: personal-eks
+#       # sources:
+#       #   - helm:
+#       #       ignoreMissingValueFiles: true
+#       #       valueFiles:
+#       #         - values.yaml
+#       #         - $globalAppConfig/helm-multisource/extra-values/values.yaml
+#       #     path: helm-multisource/chart
+#       #     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+#       #     targetRevision: personal-eks
+#       #   - ref: globalAppConfig
+#       #     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+#       #     path: helm-multisource/extra-values
+#       #     targetRevision: personal-eks
+#       syncPolicy:
+#         automated:
+#           prune: true
+#           selfHeal: true
+#         syncOptions:
+#           - CreateNamespace=true
