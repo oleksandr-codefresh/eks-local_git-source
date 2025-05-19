@@ -10,6 +10,8 @@ spec:
     path: helm-guestbook
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
+    helm:
+      releaseName: gm-helm-custom
   destination:
     name: in-cluster
     # name: alina
