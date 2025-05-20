@@ -1,34 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ms-canary-date
+  name: cron-app
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
-    # argocd.argoproj.io/manifest-generate-paths: .
+    argocd.argoproj.io/manifest-generate-paths: .
 spec:
   project: default
+  source:
+    path: argo-e2e
+    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+    targetRevision: personal-eks
   destination:
     name: in-cluster
-    namespace: test-ms-namespace
-  sources:
-    - path: multi-source/canary-rollout/part-one
-      repoURL: https://github.com/testcodefresh/argocd-example-apps.git
-      targetRevision: helm-01_ms-canary-date
-    - path: multi-source/canary-rollout/part-two
-      repoURL: https://github.com/testcodefresh/argocd-example-apps.git
-      targetRevision: helm-01_ms-canary-date
+    namespace: test-namespace
   syncPolicy:
     automated:
       prune: true
       selfHeal: false
       allowEmpty: false
-    retry:
-      limit: 0
-      backoff:
-        duration: 5s
-        maxDuration: 3m0s
-        factor: 2
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
