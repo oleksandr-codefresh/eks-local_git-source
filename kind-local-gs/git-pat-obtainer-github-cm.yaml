@@ -11,7 +11,7 @@ data:
     mode: CUSTOM
     appName: ''
     secret:
-      name: github-oauth2
+      name: github-onprem-oauth2
       namespace: kind-local
       path:
         appId: appId
