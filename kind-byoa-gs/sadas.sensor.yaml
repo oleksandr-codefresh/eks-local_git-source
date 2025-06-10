@@ -2,6 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
   name: sadas
+  labels:
+    dsadas: sdsd
 spec:
   template:
     serviceAccountName: argo-server
