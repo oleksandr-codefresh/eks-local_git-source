@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: asdasda
+spec:
+  eventBusName: codefresh-eventbus
+  service:
+    ports:
+      - port: 80
+  template:
+    serviceAccountName: argo-server
+  github:
+    github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa:
+      events:
+        - push
+      repositories:
+        - owner: codefresh-io
+          names:
+            - codefresh-gitops-operator
+      webhook:
+        port: '80'
+        method: POST
+        endpoint: /webhooks/argocd/asdasda/github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+        url: https://4c65b8b7f703.ngrok.app
+      active: true
+      insecure: false
+      contentType: json
+      deleteHookOnFinish: true
+      apiToken:
+        name: runtime-repo-creds-secret
+        key: password

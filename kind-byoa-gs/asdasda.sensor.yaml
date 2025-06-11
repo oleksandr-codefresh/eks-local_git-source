@@ -1,0 +1,118 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: asdasda
+spec:
+  template:
+    serviceAccountName: argo-server
+  eventBusName: codefresh-eventbus
+  dependencies:
+    - name: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+      eventName: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+      eventSourceName: asdasda
+      filters:
+        data:
+          - path: body.X-GitHub-Event
+            value:
+              - push
+            type: string
+          - path: body.ref
+            template: '{{ (split "/" .Input)._1 }}'
+            value:
+              - heads
+            type: string
+          - path: body.head_commit.message
+            comparator: '='
+            type: string
+            value:
+              - asdasd
+  triggers:
+    - template:
+        name: asdasdasd
+        conditions: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+        argoWorkflow:
+          operation: submit
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: WorkflowTemplate
+              metadata:
+                generateName: asdasda-asdasdasd-
+              spec:
+                arguments:
+                  parameters:
+                    - name: GIT_REPO_URL
+                      value: '1'
+                    - name: IMAGE_NAME
+                      value: '2'
+                    - name: IMAGE_TAG
+                      value: '3'
+                    - name: GIT_REVISION
+                      value: '4'
+                    - name: GIT_BRANCH
+                      value: '5'
+                    - name: GIT_COMMIT_URL
+                      value: '6'
+                    - name: GIT_COMMIT_MESSAGE
+                      value: '7'
+                    - name: DOCKERFILE
+                      value: '8'
+                    - name: GIT_TOKEN_SECRET
+                      value: '9'
+                    - name: CONTEXT
+                      value: '10'
+                    - name: REGISTRY_CREDS_SECRET
+                      value: '11'
+                    - name: DOCKER_CONFIG_SECRET
+                      value: '12'
+                workflowTemplateRef:
+                  name: argo-hub.ci-simple.0.0.1
+          parameters:
+            - dest: spec.arguments.parameters.0.value
+              src:
+                dependencyName: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+                dataTemplate: dvsd
+            - dest: spec.arguments.parameters.1.value
+              src:
+                dependencyName: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+                dataTemplate: bh
+            - dest: spec.arguments.parameters.2.value
+              src:
+                dependencyName: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+                dataTemplate: kilz
+            - dest: spec.arguments.parameters.3.value
+              src:
+                dependencyName: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+                dataTemplate: m
+            - dest: spec.arguments.parameters.4.value
+              src:
+                dependencyName: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+                dataTemplate: bxpas
+            - dest: spec.arguments.parameters.5.value
+              src:
+                dependencyName: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+                dataTemplate: msdls
+            - dest: spec.arguments.parameters.6.value
+              src:
+                dependencyName: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+                dataTemplate: nmc
+            - dest: spec.arguments.parameters.7.value
+              src:
+                dependencyName: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+                dataTemplate: mcljtu
+            - dest: spec.arguments.parameters.8.value
+              src:
+                dependencyName: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+                dataTemplate: ouj
+            - dest: spec.arguments.parameters.9.value
+              src:
+                dependencyName: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+                dataTemplate: ',;lb'
+            - dest: spec.arguments.parameters.10.value
+              src:
+                dependencyName: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+                dataTemplate: vca
+            - dest: spec.arguments.parameters.11.value
+              src:
+                dependencyName: github-83ce9f14-c877-4fc9-98ea-aa451dcef3fa
+                dataTemplate: vbb
