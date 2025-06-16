@@ -1,0 +1,118 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: byoa
+spec:
+  template:
+    serviceAccountName: argo-server
+  eventBusName: codefresh-eventbus
+  dependencies:
+    - name: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+      eventName: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+      eventSourceName: byoa
+      filters:
+        data:
+          - path: body.X-GitHub-Event
+            value:
+              - push
+            type: string
+          - path: body.ref
+            template: '{{ (split "/" .Input)._1 }}'
+            value:
+              - heads
+            type: string
+          - path: body.head_commit.message
+            comparator: '='
+            type: string
+            value:
+              - dasds
+  triggers:
+    - template:
+        name: byoa-t
+        conditions: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+        argoWorkflow:
+          operation: submit
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: WorkflowTemplate
+              metadata:
+                generateName: byoa-byoa-t-
+              spec:
+                arguments:
+                  parameters:
+                    - name: GIT_REPO_URL
+                      value: hdbsfh
+                    - name: IMAGE_NAME
+                      value: bh
+                    - name: IMAGE_TAG
+                      value: bhbd
+                    - name: GIT_REVISION
+                      value: ff
+                    - name: GIT_BRANCH
+                      value: hbd
+                    - name: GIT_COMMIT_URL
+                      value: hb
+                    - name: GIT_COMMIT_MESSAGE
+                      value: h
+                    - name: DOCKERFILE
+                      value: bh
+                    - name: GIT_TOKEN_SECRET
+                      value: bh
+                    - name: CONTEXT
+                      value: bh
+                    - name: REGISTRY_CREDS_SECRET
+                      value: bh
+                    - name: DOCKER_CONFIG_SECRET
+                      value: bh
+                workflowTemplateRef:
+                  name: argo-hub.ci-simple.0.0.1
+          parameters:
+            - dest: spec.arguments.parameters.0.value
+              src:
+                dependencyName: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+                dataTemplate: 1q
+            - dest: spec.arguments.parameters.1.value
+              src:
+                dependencyName: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+                dataTemplate: h
+            - dest: spec.arguments.parameters.2.value
+              src:
+                dependencyName: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+                dataTemplate: b
+            - dest: spec.arguments.parameters.3.value
+              src:
+                dependencyName: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+                dataTemplate: h
+            - dest: spec.arguments.parameters.4.value
+              src:
+                dependencyName: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+                dataTemplate: vbh
+            - dest: spec.arguments.parameters.5.value
+              src:
+                dependencyName: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+                dataTemplate: bh
+            - dest: spec.arguments.parameters.6.value
+              src:
+                dependencyName: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+                dataTemplate: b
+            - dest: spec.arguments.parameters.7.value
+              src:
+                dependencyName: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+                dataTemplate: hb
+            - dest: spec.arguments.parameters.8.value
+              src:
+                dependencyName: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+                dataTemplate: hb
+            - dest: spec.arguments.parameters.9.value
+              src:
+                dependencyName: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+                dataTemplate: h
+            - dest: spec.arguments.parameters.10.value
+              src:
+                dependencyName: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+                dataTemplate: bh
+            - dest: spec.arguments.parameters.11.value
+              src:
+                dependencyName: github-0a606afa-6976-4b1e-87fb-0d86068a5352
+                dataTemplate: e
