@@ -95,7 +95,7 @@ spec:
             - dest: spec.arguments.parameters.6.value
               src:
                 dependencyName: github-9ef2fece-ff3f-424d-8d60-d70769cf2276
-                dataTemplate: jn
+                dataTemplate: jnaaaaaa
             - dest: spec.arguments.parameters.7.value
               src:
                 dependencyName: github-9ef2fece-ff3f-424d-8d60-d70769cf2276
