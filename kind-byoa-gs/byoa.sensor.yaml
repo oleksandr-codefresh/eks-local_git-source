@@ -42,7 +42,7 @@ spec:
                 arguments:
                   parameters:
                     - name: GIT_REPO_URL
-                      value: hdbsfh
+                      value: jbbbbb
                     - name: IMAGE_NAME
                       value: bh
                     - name: IMAGE_TAG
