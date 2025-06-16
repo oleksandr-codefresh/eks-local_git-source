@@ -29,3 +29,22 @@ spec:
       apiToken:
         name: runtime-repo-creds-secret
         key: password
+    github-2f74c98a-5930-415e-bee8-24da77b7d2d1:
+      events:
+        - commit_comment
+      repositories:
+        - owner: codefresh-io
+          names:
+            - codefresh-gitops-operator
+      webhook:
+        port: '80'
+        method: POST
+        endpoint: /webhooks/argocd/byoa/github-2f74c98a-5930-415e-bee8-24da77b7d2d1
+        url: https://1861a18a7fc8.ngrok.app
+      active: true
+      insecure: false
+      contentType: json
+      deleteHookOnFinish: true
+      apiToken:
+        name: runtime-repo-creds-secret
+        key: password
