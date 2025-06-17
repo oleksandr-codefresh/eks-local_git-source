@@ -44,7 +44,7 @@ spec:
                     - name: GIT_REPO_URL
                       value: 'y'
                     - name: IMAGE_NAME
-                      value: h
+                      value: hsdsdfdsfdsfdsf
                     - name: IMAGE_TAG
                       value: j
                     - name: GIT_REVISION
@@ -75,7 +75,7 @@ spec:
             - dest: spec.arguments.parameters.1.value
               src:
                 dependencyName: github-9ef2fece-ff3f-424d-8d60-d70769cf2276
-                dataTemplate: k
+                dataTemplate: k-----------
             - dest: spec.arguments.parameters.2.value
               src:
                 dependencyName: github-9ef2fece-ff3f-424d-8d60-d70769cf2276
