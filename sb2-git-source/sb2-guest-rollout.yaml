@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sb2-guest-rollout
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/foreground
+  annotations:
+    codefresh.io/product: helm-guestbook
+spec:
+  project: default
+  destination:
+    name: in-cluster
+    namespace: runtime-dev-ns
+  source:
+    path: guest-rollout
+    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+    targetRevision: personal-eks
+  syncPolicy:
+    syncOptions:
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
+      - ServerSideApply=true
+      - RespectIgnoreDifferences=false
