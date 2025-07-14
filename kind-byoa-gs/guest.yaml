@@ -4,6 +4,8 @@ metadata:
   name: guest-byoa
   annotations:
     codefresh.io/app-group: test
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/foreground
 spec:
   project: default
   destination:
