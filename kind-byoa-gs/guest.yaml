@@ -1,33 +1,33 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: guest-byoa
-#   annotations:
-#     codefresh.io/app-group: test
-#   finalizers:
-#     - resources-finalizer.argocd.argoproj.io/foreground
-# spec:
-#   project: default
-#   destination:
-#     name: in-cluster
-#     namespace: test-ns
-#   source:
-#     path: helm-guestbook
-#     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-#     targetRevision: personal-eks
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
-#       allowEmpty: false
-#     retry:
-#       limit: 1
-#     syncOptions:
-#       - PrunePropagationPolicy=foreground
-#       - Replace=false
-#       - PruneLast=false
-#       - Validate=true
-#       - CreateNamespace=true
-#       - ApplyOutOfSyncOnly=false
-#       - ServerSideApply=true
-#       - RespectIgnoreDifferences=false
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guest-byoa
+  annotations:
+    codefresh.io/app-group: test
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/foreground
+spec:
+  project: default
+  destination:
+    name: in-cluster
+    namespace: test-ns
+  source:
+    path: helm-guestbook
+    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+    targetRevision: personal-eks
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    retry:
+      limit: 1
+    syncOptions:
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
+      - ServerSideApply=true
+      - RespectIgnoreDifferences=false
