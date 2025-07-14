@@ -20,9 +20,9 @@ spec:
     name: in-cluster
     namespace: multi-test-dev
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: false
+    # automated:
+    #   prune: true
+    #   selfHeal: false
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=false
