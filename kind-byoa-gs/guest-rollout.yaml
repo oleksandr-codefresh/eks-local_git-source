@@ -11,7 +11,7 @@ spec:
   source:
     path: guest-rollout
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-    targetRevision: personal-eks
+    targetRevision: personal-eks-3
   destination:
     name: in-cluster
     # name: ue1-e2e
