@@ -11,15 +11,15 @@ spec:
   source:
     path: guest-rollout
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-    targetRevision: personal-eks-3
+    targetRevision: personal-eks
   destination:
     name: in-cluster
     # name: ue1-e2e
     namespace: runtime-dev-ns
   syncPolicy:
-    # automated:
-    #   prune: true
-    #   selfHeal: true
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
