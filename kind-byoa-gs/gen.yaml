@@ -6,7 +6,7 @@ metadata:
   name: alex-app-generator
 spec:
   destination:
-    namespace: codefresh
+    namespace: argocd
     server: https://kubernetes.default.svc
   project: default
   source:
